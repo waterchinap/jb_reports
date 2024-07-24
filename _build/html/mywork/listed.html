@@ -1,0 +1,1745 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>上市公司数量分析 &#8212; reports</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'mywork/listed';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/mylogo_p.png" class="logo__image only-light" alt="reports - Home"/>
+    <script>document.write(`<img src="../_static/mylogo_p.png" class="logo__image only-dark" alt="reports - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to my reports
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/waterchinap/jb_reports" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/mywork/listed.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>上市公司数量分析</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">上市和退市</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">上市公司分类分析</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">交易所和板块</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">沪港通和深港通</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">年度变化</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>上市公司数量分析<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>使用tushare免费的基础信息数据集。(很遗憾,就在2023年5月底这几天,不免费了)</p></li>
+<li><p>公司所属地区和所属行业，有超过7%的数据缺失。暂时不用这两个属性。</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>列名</th>
+      <th>类型</th>
+      <th>缺失比%</th>
+      <th>样例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ts_code</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>603117.SH</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>symbol</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>603117</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>name</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>ST万林</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>area</td>
+      <td>object</td>
+      <td>11.053316</td>
+      <td>江苏</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>industry</td>
+      <td>object</td>
+      <td>11.053316</td>
+      <td>仓储物流</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>fullname</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>江苏万林现代物流股份有限公司</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>enname</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>Jiangsu Wanlin Modern Logistics Co., Ltd.</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>cnspell</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>stwl</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>market</td>
+      <td>object</td>
+      <td>0.018577</td>
+      <td>主板</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>exchange</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>SSE</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>curr_type</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>CNY</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>list_status</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>L</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>list_date</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>20150629</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>delist_date</td>
+      <td>object</td>
+      <td>96.321754</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>is_hs</td>
+      <td>object</td>
+      <td>0.018577</td>
+      <td>N</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="id2">
+<h2>上市和退市<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>至数据更新时,A股三市现存上市公司5185家</p></li>
+<li><p>已经退市的198家</p></li>
+<li><p>总体退市率为3.7%</p></li>
+<li><p>分板块来看:主板的退市率最高,当然科创板才刚开始.</p></li>
+<li><p>分交易所来看:沪深差不多,沪市稍高.</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+    
+    <style>
+      .card_group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        border-radius: 10px;
+        display: inline-block;
+        height: 260px;
+        margin: 1rem;
+        width: 260px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.24);
+      }
+
+      .card_title {
+        border-bottom: 5px;
+        border-bottom-style: dotted;
+        border-bottom-color: grey;
+        margin: 5px;
+        padding: 5px;
+        font-size: 2em;
+      }
+      .card_content {
+        font-size: 4em;
+        margin: 5px;
+        align-self: center;
+        height: 200px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+      }
+    </style>
+    
+    <div class="card_group">
+        
+        <div class="card">
+            <div class="card_title">退市</div>
+            <div class="card_content">
+            <span>198</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card_title">上市</div>
+            <div class="card_content">
+            <span>5185</span>
+            </div>
+        </div>
+        
+    </div>
+    </div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>退市</th>
+      <th>上市</th>
+      <th>合计</th>
+    </tr>
+    <tr>
+      <th>market</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>主板</th>
+      <td>177</td>
+      <td>3202</td>
+      <td>3379</td>
+    </tr>
+    <tr>
+      <th>创业板</th>
+      <td>17</td>
+      <td>1261</td>
+      <td>1278</td>
+    </tr>
+    <tr>
+      <th>北交所</th>
+      <td>3</td>
+      <td>195</td>
+      <td>198</td>
+    </tr>
+    <tr>
+      <th>科创板</th>
+      <td>0</td>
+      <td>527</td>
+      <td>527</td>
+    </tr>
+    <tr>
+      <th>All</th>
+      <td>197</td>
+      <td>5185</td>
+      <td>5382</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>退市</th>
+      <th>上市</th>
+      <th>合计</th>
+    </tr>
+    <tr>
+      <th>exchange</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>BSE</th>
+      <td>3</td>
+      <td>195</td>
+      <td>198</td>
+    </tr>
+    <tr>
+      <th>SSE</th>
+      <td>93</td>
+      <td>2213</td>
+      <td>2306</td>
+    </tr>
+    <tr>
+      <th>SZSE</th>
+      <td>102</td>
+      <td>2777</td>
+      <td>2879</td>
+    </tr>
+    <tr>
+      <th>All</th>
+      <td>198</td>
+      <td>5185</td>
+      <td>5383</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-f2b663592d9241c595fcc46b4c3c9f29.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-f2b663592d9241c595fcc46b4c3c9f29.vega-embed details,
+  #altair-viz-f2b663592d9241c595fcc46b4c3c9f29.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-f2b663592d9241c595fcc46b4c3c9f29"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-f2b663592d9241c595fcc46b4c3c9f29") {
+      outputDiv = document.getElementById("altair-viz-f2b663592d9241c595fcc46b4c3c9f29");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-0687e66d6636059e0d8ea28e8c55fa9b"}, "mark": {"type": "line", "point": {"radius": 8, "fill": "white", "stroke": "grey"}}, "encoding": {"tooltip": [{"field": "delist_date", "type": "nominal"}, {"field": "delist_num", "type": "quantitative"}], "x": {"field": "delist_date", "type": "nominal"}, "y": {"field": "delist_num", "type": "quantitative"}}, "title": "\u9000\u5e02\u516c\u53f8\u6570\u91cf\u5e74\u5ea6\u53d8\u5316", "width": "container", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-0687e66d6636059e0d8ea28e8c55fa9b": [{"delist_date": "1999", "delist_num": 1}, {"delist_date": "2001", "delist_num": 3}, {"delist_date": "2002", "delist_num": 7}, {"delist_date": "2003", "delist_num": 4}, {"delist_date": "2004", "delist_num": 10}, {"delist_date": "2005", "delist_num": 10}, {"delist_date": "2006", "delist_num": 13}, {"delist_date": "2007", "delist_num": 10}, {"delist_date": "2008", "delist_num": 2}, {"delist_date": "2009", "delist_num": 5}, {"delist_date": "2010", "delist_num": 4}, {"delist_date": "2011", "delist_num": 3}, {"delist_date": "2012", "delist_num": 3}, {"delist_date": "2013", "delist_num": 6}, {"delist_date": "2014", "delist_num": 1}, {"delist_date": "2015", "delist_num": 7}, {"delist_date": "2016", "delist_num": 1}, {"delist_date": "2017", "delist_num": 5}, {"delist_date": "2018", "delist_num": 5}, {"delist_date": "2019", "delist_num": 10}, {"delist_date": "2020", "delist_num": 16}, {"delist_date": "2021", "delist_num": 20}, {"delist_date": "2022", "delist_num": 46}, {"delist_date": "2023", "delist_num": 6}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<ul class="simple">
+<li><p>近三年(2020-2022)退市公司数连创新高,2023年不知道情况如何.</p></li>
+<li><p>退市公司上市时间的分布情况:</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+    
+    <style>
+      .card_group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        border-radius: 10px;
+        display: inline-block;
+        height: 260px;
+        margin: 1rem;
+        width: 260px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.24);
+      }
+
+      .card_title {
+        border-bottom: 5px;
+        border-bottom-style: dotted;
+        border-bottom-color: grey;
+        margin: 5px;
+        padding: 5px;
+        font-size: 2em;
+      }
+      .card_content {
+        font-size: 4em;
+        margin: 5px;
+        align-self: center;
+        height: 200px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+      }
+    </style>
+    
+    <div class="card_group">
+        
+        <div class="card">
+            <div class="card_title">count</div>
+            <div class="card_content">
+            <span>198.0</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card_title">mean</div>
+            <div class="card_content">
+            <span>14.65</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card_title">std</div>
+            <div class="card_content">
+            <span>7.3</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card_title">min</div>
+            <div class="card_content">
+            <span>1.75</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card_title">25%</div>
+            <div class="card_content">
+            <span>8.68</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card_title">50%</div>
+            <div class="card_content">
+            <span>12.11</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card_title">75%</div>
+            <div class="card_content">
+            <span>21.36</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card_title">max</div>
+            <div class="card_content">
+            <span>31.53</span>
+            </div>
+        </div>
+        
+    </div>
+    </div></div>
+</div>
+<ul class="simple">
+<li><p>退市公司的上市寿命中位数为12年,平均大约14年</p></li>
+<li><p>最长寿的活了31.5年,最短命的只上市了不到两年.</p></li>
+<li><p>以下分别列示出top10</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_9e644">
+  <caption>最短命的退市公司</caption>
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_9e644_level0_col0" class="col_heading level0 col0" >symbol</th>
+      <th id="T_9e644_level0_col1" class="col_heading level0 col1" >name</th>
+      <th id="T_9e644_level0_col2" class="col_heading level0 col2" >years</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_9e644_level0_row0" class="row_heading level0 row0" >5377</th>
+      <td id="T_9e644_row0_col0" class="data row0 col0" >832317</td>
+      <td id="T_9e644_row0_col1" class="data row0 col1" >观典防务(退)</td>
+      <td id="T_9e644_row0_col2" class="data row0 col2" >1.75</td>
+    </tr>
+    <tr>
+      <th id="T_9e644_level0_row1" class="row_heading level0 row1" >5378</th>
+      <td id="T_9e644_row1_col0" class="data row1 col0" >833874</td>
+      <td id="T_9e644_row1_col1" class="data row1 col1" >泰祥股份(退)</td>
+      <td id="T_9e644_row1_col2" class="data row1 col2" >1.98</td>
+    </tr>
+    <tr>
+      <th id="T_9e644_level0_row2" class="row_heading level0 row2" >5379</th>
+      <td id="T_9e644_row2_col0" class="data row2 col0" >833994</td>
+      <td id="T_9e644_row2_col1" class="data row2 col1" >翰博高新(退)</td>
+      <td id="T_9e644_row2_col2" class="data row2 col2" >1.99</td>
+    </tr>
+    <tr>
+      <th id="T_9e644_level0_row3" class="row_heading level0 row3" >5258</th>
+      <td id="T_9e644_row3_col0" class="data row3 col0" >600472</td>
+      <td id="T_9e644_row3_col1" class="data row3 col1" >包头铝业(退)</td>
+      <td id="T_9e644_row3_col2" class="data row3 col2" >2.63</td>
+    </tr>
+    <tr>
+      <th id="T_9e644_level0_row4" class="row_heading level0 row4" >5355</th>
+      <td id="T_9e644_row4_col0" class="data row4 col0" >300372</td>
+      <td id="T_9e644_row4_col1" class="data row4 col1" >欣泰退(退)</td>
+      <td id="T_9e644_row4_col2" class="data row4 col2" >3.59</td>
+    </tr>
+    <tr>
+      <th id="T_9e644_level0_row5" class="row_heading level0 row5" >5382</th>
+      <td id="T_9e644_row5_col0" class="data row5 col0" >603157</td>
+      <td id="T_9e644_row5_col1" class="data row5 col1" >退拉夏(退)</td>
+      <td id="T_9e644_row5_col2" class="data row5 col2" >4.66</td>
+    </tr>
+    <tr>
+      <th id="T_9e644_level0_row6" class="row_heading level0 row6" >5234</th>
+      <td id="T_9e644_row6_col0" class="data row6 col0" >300186</td>
+      <td id="T_9e644_row6_col1" class="data row6 col1" >大华农(退)</td>
+      <td id="T_9e644_row6_col2" class="data row6 col2" >4.66</td>
+    </tr>
+    <tr>
+      <th id="T_9e644_level0_row7" class="row_heading level0 row7" >5299</th>
+      <td id="T_9e644_row7_col0" class="data row7 col0" >601268</td>
+      <td id="T_9e644_row7_col1" class="data row7 col1" >*ST二重(退)</td>
+      <td id="T_9e644_row7_col2" class="data row7 col2" >5.30</td>
+    </tr>
+    <tr>
+      <th id="T_9e644_level0_row8" class="row_heading level0 row8" >5286</th>
+      <td id="T_9e644_row8_col0" class="data row8 col0" >601299</td>
+      <td id="T_9e644_row8_col1" class="data row8 col1" >中国北车(退)</td>
+      <td id="T_9e644_row8_col2" class="data row8 col2" >5.39</td>
+    </tr>
+    <tr>
+      <th id="T_9e644_level0_row9" class="row_heading level0 row9" >5193</th>
+      <td id="T_9e644_row9_col0" class="data row9 col0" >000588</td>
+      <td id="T_9e644_row9_col1" class="data row9 col1" >PT粤金曼(退)</td>
+      <td id="T_9e644_row9_col2" class="data row9 col2" >5.40</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_a0c1e">
+  <caption>最长寿的退市公司</caption>
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_a0c1e_level0_col0" class="col_heading level0 col0" >symbol</th>
+      <th id="T_a0c1e_level0_col1" class="col_heading level0 col1" >name</th>
+      <th id="T_a0c1e_level0_col2" class="col_heading level0 col2" >years</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_a0c1e_level0_row0" class="row_heading level0 row0" >5189</th>
+      <td id="T_a0c1e_row0_col0" class="data row0 col0" >600652</td>
+      <td id="T_a0c1e_row0_col1" class="data row0 col1" >退游久(退)</td>
+      <td id="T_a0c1e_row0_col2" class="data row0 col2" >31.53</td>
+    </tr>
+    <tr>
+      <th id="T_a0c1e_level0_row1" class="row_heading level0 row1" >5196</th>
+      <td id="T_a0c1e_row1_col0" class="data row1 col0" >000502</td>
+      <td id="T_a0c1e_row1_col1" class="data row1 col1" >绿景退(退)</td>
+      <td id="T_a0c1e_row1_col2" class="data row1 col2" >29.61</td>
+    </tr>
+    <tr>
+      <th id="T_a0c1e_level0_row2" class="row_heading level0 row2" >5372</th>
+      <td id="T_a0c1e_row2_col0" class="data row2 col0" >600614</td>
+      <td id="T_a0c1e_row2_col1" class="data row2 col1" >退鹏起(退)</td>
+      <td id="T_a0c1e_row2_col2" class="data row2 col2" >28.92</td>
+    </tr>
+    <tr>
+      <th id="T_a0c1e_level0_row3" class="row_heading level0 row3" >5289</th>
+      <td id="T_a0c1e_row3_col0" class="data row3 col0" >600695</td>
+      <td id="T_a0c1e_row3_col1" class="data row3 col1" >退绿庭(退)</td>
+      <td id="T_a0c1e_row3_col2" class="data row3 col2" >28.58</td>
+    </tr>
+    <tr>
+      <th id="T_a0c1e_level0_row4" class="row_heading level0 row4" >5354</th>
+      <td id="T_a0c1e_row4_col0" class="data row4 col0" >600634</td>
+      <td id="T_a0c1e_row4_col1" class="data row4 col1" >退富控(退)</td>
+      <td id="T_a0c1e_row4_col2" class="data row4 col2" >28.40</td>
+    </tr>
+    <tr>
+      <th id="T_a0c1e_level0_row5" class="row_heading level0 row5" >5232</th>
+      <td id="T_a0c1e_row5_col0" class="data row5 col0" >600856</td>
+      <td id="T_a0c1e_row5_col1" class="data row5 col1" >退中天(退)</td>
+      <td id="T_a0c1e_row5_col2" class="data row5 col2" >28.18</td>
+    </tr>
+    <tr>
+      <th id="T_a0c1e_level0_row6" class="row_heading level0 row6" >5248</th>
+      <td id="T_a0c1e_row6_col0" class="data row6 col0" >000018</td>
+      <td id="T_a0c1e_row6_col1" class="data row6 col1" >神城A退(退)</td>
+      <td id="T_a0c1e_row6_col2" class="data row6 col2" >27.58</td>
+    </tr>
+    <tr>
+      <th id="T_a0c1e_level0_row7" class="row_heading level0 row7" >5219</th>
+      <td id="T_a0c1e_row7_col0" class="data row7 col0" >600677</td>
+      <td id="T_a0c1e_row7_col1" class="data row7 col1" >*ST航通(退)</td>
+      <td id="T_a0c1e_row7_col2" class="data row7 col2" >27.49</td>
+    </tr>
+    <tr>
+      <th id="T_a0c1e_level0_row8" class="row_heading level0 row8" >5325</th>
+      <td id="T_a0c1e_row8_col0" class="data row8 col0" >600870</td>
+      <td id="T_a0c1e_row8_col1" class="data row8 col1" >退厦华(退)</td>
+      <td id="T_a0c1e_row8_col2" class="data row8 col2" >27.35</td>
+    </tr>
+    <tr>
+      <th id="T_a0c1e_level0_row9" class="row_heading level0 row9" >5290</th>
+      <td id="T_a0c1e_row9_col0" class="data row9 col0" >600687</td>
+      <td id="T_a0c1e_row9_col1" class="data row9 col1" >退刚泰(退)</td>
+      <td id="T_a0c1e_row9_col2" class="data row9 col2" >27.33</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="id3">
+<h2>上市公司分类分析<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>目前没有退市的上市公司,分板块,分市场,分行业情况.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>交易所和板块<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>三个交易所,四个板块</p></li>
+<li><p>从交易所上市数量来看,深交所规模最大,北交所成立较晚规模最小</p></li>
+<li><p>主板规模最大</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-6398c3376548463fb6ff7a57399e4e7b.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-6398c3376548463fb6ff7a57399e4e7b.vega-embed details,
+  #altair-viz-6398c3376548463fb6ff7a57399e4e7b.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-6398c3376548463fb6ff7a57399e4e7b"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-6398c3376548463fb6ff7a57399e4e7b") {
+      outputDiv = document.getElementById("altair-viz-6398c3376548463fb6ff7a57399e4e7b");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axis": {"grid": false}}, "layer": [{"mark": {"type": "bar", "cornerRadius": 10}, "encoding": {"color": {"field": "exchange", "legend": {"orient": "top"}, "type": "nominal"}, "order": {"field": "Num", "sort": "descending"}, "tooltip": [{"field": "exchange", "type": "nominal"}, {"field": "Num", "type": "quantitative"}], "x": {"aggregate": "sum", "axis": null, "field": "Num", "stack": "zero", "type": "quantitative"}, "y": {"axis": null, "field": "help", "type": "nominal"}}}, {"mark": {"type": "text", "align": "center", "angle": 45, "baseline": "line-top", "color": "white", "dx": -15, "fontSize": 20}, "encoding": {"order": {"field": "Num", "sort": "descending"}, "text": {"field": "Num"}, "tooltip": [{"field": "exchange", "type": "nominal"}, {"field": "Num", "type": "quantitative"}], "x": {"aggregate": "sum", "axis": null, "field": "Num", "stack": "zero", "type": "quantitative"}, "y": {"axis": null, "field": "help", "type": "nominal"}}}], "data": {"name": "data-3615b51c2894e8099ae02261188d629c"}, "height": 80, "width": "container", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-3615b51c2894e8099ae02261188d629c": [{"exchange": "BSE", "Num": 195, "help": "help"}, {"exchange": "SSE", "Num": 2213, "help": "help"}, {"exchange": "SZSE", "Num": 2777, "help": "help"}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-4e54e0e84f8c48fcbfc647aa9c2585f5.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-4e54e0e84f8c48fcbfc647aa9c2585f5.vega-embed details,
+  #altair-viz-4e54e0e84f8c48fcbfc647aa9c2585f5.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-4e54e0e84f8c48fcbfc647aa9c2585f5"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-4e54e0e84f8c48fcbfc647aa9c2585f5") {
+      outputDiv = document.getElementById("altair-viz-4e54e0e84f8c48fcbfc647aa9c2585f5");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axis": {"grid": false}}, "layer": [{"mark": {"type": "bar", "cornerRadius": 10}, "encoding": {"color": {"field": "market", "legend": {"orient": "top"}, "type": "nominal"}, "order": {"field": "Num", "sort": "descending"}, "tooltip": [{"field": "market", "type": "nominal"}, {"field": "Num", "type": "quantitative"}], "x": {"aggregate": "sum", "axis": null, "field": "Num", "stack": "zero", "type": "quantitative"}, "y": {"axis": null, "field": "help", "type": "nominal"}}}, {"mark": {"type": "text", "align": "center", "angle": 45, "baseline": "line-top", "color": "white", "dx": -15, "fontSize": 20}, "encoding": {"order": {"field": "Num", "sort": "descending"}, "text": {"field": "Num"}, "tooltip": [{"field": "market", "type": "nominal"}, {"field": "Num", "type": "quantitative"}], "x": {"aggregate": "sum", "axis": null, "field": "Num", "stack": "zero", "type": "quantitative"}, "y": {"axis": null, "field": "help", "type": "nominal"}}}], "data": {"name": "data-dc16ff73e77e15a97f18b613cc3e20d0"}, "height": 80, "width": "container", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-dc16ff73e77e15a97f18b613cc3e20d0": [{"market": "\u4e3b\u677f", "Num": 3202, "help": "help"}, {"market": "\u521b\u4e1a\u677f", "Num": 1261, "help": "help"}, {"market": "\u5317\u4ea4\u6240", "Num": 195, "help": "help"}, {"market": "\u79d1\u521b\u677f", "Num": 527, "help": "help"}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-d4adecdb4fb2462982af4605a1be801f.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-d4adecdb4fb2462982af4605a1be801f.vega-embed details,
+  #altair-viz-d4adecdb4fb2462982af4605a1be801f.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-d4adecdb4fb2462982af4605a1be801f"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-d4adecdb4fb2462982af4605a1be801f") {
+      outputDiv = document.getElementById("altair-viz-d4adecdb4fb2462982af4605a1be801f");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axis": {"grid": false}}, "layer": [{"mark": {"type": "bar", "cornerRadius": 10}, "encoding": {"color": {"field": "market", "legend": {"orient": "top"}, "type": "nominal"}, "order": {"field": "market", "sort": "descending"}, "tooltip": [{"field": "exchange", "type": "nominal"}, {"field": "market", "type": "nominal"}, {"field": "Num", "type": "quantitative"}], "x": {"aggregate": "sum", "axis": null, "field": "Num", "stack": "zero", "type": "quantitative"}, "y": {"field": "exchange", "type": "nominal"}}}, {"mark": {"type": "text", "align": "right", "baseline": "top", "color": "white", "dx": -15, "fontSize": 20}, "encoding": {"order": {"field": "market", "sort": "descending"}, "text": {"field": "Num"}, "tooltip": [{"field": "exchange", "type": "nominal"}, {"field": "market", "type": "nominal"}, {"field": "Num", "type": "quantitative"}], "x": {"aggregate": "sum", "axis": null, "field": "Num", "stack": "zero", "type": "quantitative"}, "y": {"field": "exchange", "type": "nominal"}}}], "data": {"name": "data-bd57787c0be58a925acecfce02be5b8f"}, "height": 240, "width": "container", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-bd57787c0be58a925acecfce02be5b8f": [{"exchange": "BSE", "market": "\u5317\u4ea4\u6240", "Num": 195}, {"exchange": "SSE", "market": "\u4e3b\u677f", "Num": 1686}, {"exchange": "SSE", "market": "\u79d1\u521b\u677f", "Num": 527}, {"exchange": "SZSE", "market": "\u4e3b\u677f", "Num": 1516}, {"exchange": "SZSE", "market": "\u521b\u4e1a\u677f", "Num": 1261}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<ul class="simple">
+<li><p>北交所没有区分板块</p></li>
+<li><p>上交所交易主板和科创板</p></li>
+<li><p>深交所交易主板和创业板</p></li>
+</ul>
+</section>
+<section id="id5">
+<h2>沪港通和深港通<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>差不多一半的上市股票已经和港交所互通</p></li>
+<li><p>深交所的深港通数量更多一点,但上交所的沪港通的比例较高</p></li>
+<li><p>北交所没有开通</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-3fe0fbc6964a446e97b622329b9c335f.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-3fe0fbc6964a446e97b622329b9c335f.vega-embed details,
+  #altair-viz-3fe0fbc6964a446e97b622329b9c335f.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-3fe0fbc6964a446e97b622329b9c335f"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-3fe0fbc6964a446e97b622329b9c335f") {
+      outputDiv = document.getElementById("altair-viz-3fe0fbc6964a446e97b622329b9c335f");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axis": {"grid": false}}, "layer": [{"mark": {"type": "bar", "cornerRadius": 10}, "encoding": {"color": {"field": "is_hs", "legend": {"orient": "top"}, "type": "nominal"}, "order": {"field": "Num", "sort": "descending"}, "tooltip": [{"field": "is_hs", "type": "nominal"}, {"field": "Num", "type": "quantitative"}], "x": {"aggregate": "sum", "axis": null, "field": "Num", "stack": "zero", "type": "quantitative"}, "y": {"axis": null, "field": "help", "type": "nominal"}}}, {"mark": {"type": "text", "align": "center", "angle": 45, "baseline": "line-top", "color": "white", "dx": -15, "fontSize": 20}, "encoding": {"order": {"field": "Num", "sort": "descending"}, "text": {"field": "Num"}, "tooltip": [{"field": "is_hs", "type": "nominal"}, {"field": "Num", "type": "quantitative"}], "x": {"aggregate": "sum", "axis": null, "field": "Num", "stack": "zero", "type": "quantitative"}, "y": {"axis": null, "field": "help", "type": "nominal"}}}], "data": {"name": "data-b39d357c61866fce94dc106398141129"}, "height": 80, "width": "container", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-b39d357c61866fce94dc106398141129": [{"is_hs": "H", "Num": 1197, "help": "help"}, {"is_hs": "N", "Num": 2653, "help": "help"}, {"is_hs": "S", "Num": 1334, "help": "help"}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-4f59531198774db89fda410770330c81.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-4f59531198774db89fda410770330c81.vega-embed details,
+  #altair-viz-4f59531198774db89fda410770330c81.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-4f59531198774db89fda410770330c81"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-4f59531198774db89fda410770330c81") {
+      outputDiv = document.getElementById("altair-viz-4f59531198774db89fda410770330c81");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axis": {"grid": false}}, "layer": [{"mark": {"type": "bar", "cornerRadius": 10}, "encoding": {"color": {"field": "is_hs", "legend": {"orient": "top"}, "type": "nominal"}, "order": {"field": "is_hs", "sort": "descending"}, "tooltip": [{"field": "exchange", "type": "nominal"}, {"field": "is_hs", "type": "nominal"}, {"field": "Num", "type": "quantitative"}], "x": {"aggregate": "sum", "axis": null, "field": "Num", "stack": "zero", "type": "quantitative"}, "y": {"field": "exchange", "type": "nominal"}}}, {"mark": {"type": "text", "align": "right", "baseline": "top", "color": "white", "dx": -15, "fontSize": 20}, "encoding": {"order": {"field": "is_hs", "sort": "descending"}, "text": {"field": "Num"}, "tooltip": [{"field": "exchange", "type": "nominal"}, {"field": "is_hs", "type": "nominal"}, {"field": "Num", "type": "quantitative"}], "x": {"aggregate": "sum", "axis": null, "field": "Num", "stack": "zero", "type": "quantitative"}, "y": {"field": "exchange", "type": "nominal"}}}], "data": {"name": "data-20f79fed0aa189a40653417cc442a0f7"}, "height": 240, "width": "container", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-20f79fed0aa189a40653417cc442a0f7": [{"exchange": "BSE", "is_hs": "\u672a\u901a", "Num": 195}, {"exchange": "SSE", "is_hs": "\u5185\u6e2f\u901a", "Num": 1197}, {"exchange": "SSE", "is_hs": "\u672a\u901a", "Num": 1015}, {"exchange": "SZSE", "is_hs": "\u672a\u901a", "Num": 1443}, {"exchange": "SZSE", "is_hs": "\u5185\u6e2f\u901a", "Num": 1334}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+</section>
+<section id="id6">
+<h2>年度变化<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-664f6a75d8d7418ea5cdfeccf51a7a1c.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-664f6a75d8d7418ea5cdfeccf51a7a1c.vega-embed details,
+  #altair-viz-664f6a75d8d7418ea5cdfeccf51a7a1c.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-664f6a75d8d7418ea5cdfeccf51a7a1c"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-664f6a75d8d7418ea5cdfeccf51a7a1c") {
+      outputDiv = document.getElementById("altair-viz-664f6a75d8d7418ea5cdfeccf51a7a1c");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-72e051b56ee1935cac95130327aac6cb"}, "mark": {"type": "line", "point": true}, "encoding": {"tooltip": [{"field": "list_year", "type": "nominal"}, {"field": "num", "type": "quantitative"}], "x": {"field": "list_year", "type": "ordinal"}, "y": {"field": "num", "type": "quantitative"}}, "title": "\u65b0\u589e\u4e0a\u5e02\u516c\u53f8\u6570\u91cf\uff082023\u5e74\u6570\u636e\u81f35\u6708\uff09", "width": "container", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-72e051b56ee1935cac95130327aac6cb": [{"list_year": "1990", "num": 8}, {"list_year": "1991", "num": 5}, {"list_year": "1992", "num": 40}, {"list_year": "1993", "num": 124}, {"list_year": "1994", "num": 110}, {"list_year": "1995", "num": 24}, {"list_year": "1996", "num": 203}, {"list_year": "1997", "num": 206}, {"list_year": "1998", "num": 106}, {"list_year": "1999", "num": 98}, {"list_year": "2000", "num": 137}, {"list_year": "2001", "num": 79}, {"list_year": "2002", "num": 71}, {"list_year": "2003", "num": 67}, {"list_year": "2004", "num": 100}, {"list_year": "2005", "num": 15}, {"list_year": "2006", "num": 66}, {"list_year": "2007", "num": 126}, {"list_year": "2008", "num": 77}, {"list_year": "2009", "num": 99}, {"list_year": "2010", "num": 349}, {"list_year": "2011", "num": 282}, {"list_year": "2012", "num": 155}, {"list_year": "2013", "num": 2}, {"list_year": "2014", "num": 125}, {"list_year": "2015", "num": 223}, {"list_year": "2016", "num": 227}, {"list_year": "2017", "num": 438}, {"list_year": "2018", "num": 105}, {"list_year": "2019", "num": 203}, {"list_year": "2020", "num": 437}, {"list_year": "2021", "num": 524}, {"list_year": "2022", "num": 428}, {"list_year": "2023", "num": 124}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-289490ced1d54313b1e2c1baa9d28d86.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-289490ced1d54313b1e2c1baa9d28d86.vega-embed details,
+  #altair-viz-289490ced1d54313b1e2c1baa9d28d86.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-289490ced1d54313b1e2c1baa9d28d86"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-289490ced1d54313b1e2c1baa9d28d86") {
+      outputDiv = document.getElementById("altair-viz-289490ced1d54313b1e2c1baa9d28d86");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-f4544bc384795193337c157262ab0a78"}, "mark": {"type": "line", "point": true}, "encoding": {"color": {"field": "market", "type": "nominal"}, "tooltip": [{"field": "list_year", "type": "nominal"}, {"field": "num", "type": "quantitative"}], "x": {"field": "list_year", "type": "ordinal"}, "y": {"field": "num", "type": "quantitative"}}, "title": "\u6309\u677f\u5757\u65b0\u589e\u4e0a\u5e02\u516c\u53f8\u6570\u91cf\uff082023\u5e74\u6570\u636e\u81f35\u6708\uff09", "width": "container", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-f4544bc384795193337c157262ab0a78": [{"list_year": "1990", "market": "\u4e3b\u677f", "num": 8}, {"list_year": "1991", "market": "\u4e3b\u677f", "num": 5}, {"list_year": "1992", "market": "\u4e3b\u677f", "num": 40}, {"list_year": "1993", "market": "\u4e3b\u677f", "num": 124}, {"list_year": "1994", "market": "\u4e3b\u677f", "num": 110}, {"list_year": "1995", "market": "\u4e3b\u677f", "num": 24}, {"list_year": "1996", "market": "\u4e3b\u677f", "num": 203}, {"list_year": "1997", "market": "\u4e3b\u677f", "num": 206}, {"list_year": "1998", "market": "\u4e3b\u677f", "num": 106}, {"list_year": "1999", "market": "\u4e3b\u677f", "num": 98}, {"list_year": "2000", "market": "\u4e3b\u677f", "num": 136}, {"list_year": "2001", "market": "\u4e3b\u677f", "num": 79}, {"list_year": "2002", "market": "\u4e3b\u677f", "num": 71}, {"list_year": "2003", "market": "\u4e3b\u677f", "num": 67}, {"list_year": "2004", "market": "\u4e3b\u677f", "num": 100}, {"list_year": "2005", "market": "\u4e3b\u677f", "num": 15}, {"list_year": "2006", "market": "\u4e3b\u677f", "num": 66}, {"list_year": "2007", "market": "\u4e3b\u677f", "num": 126}, {"list_year": "2008", "market": "\u4e3b\u677f", "num": 77}, {"list_year": "2009", "market": "\u4e3b\u677f", "num": 63}, {"list_year": "2009", "market": "\u521b\u4e1a\u677f", "num": 36}, {"list_year": "2010", "market": "\u4e3b\u677f", "num": 232}, {"list_year": "2010", "market": "\u521b\u4e1a\u677f", "num": 117}, {"list_year": "2011", "market": "\u4e3b\u677f", "num": 154}, {"list_year": "2011", "market": "\u521b\u4e1a\u677f", "num": 128}, {"list_year": "2012", "market": "\u4e3b\u677f", "num": 81}, {"list_year": "2012", "market": "\u521b\u4e1a\u677f", "num": 74}, {"list_year": "2013", "market": "\u4e3b\u677f", "num": 2}, {"list_year": "2014", "market": "\u4e3b\u677f", "num": 74}, {"list_year": "2014", "market": "\u521b\u4e1a\u677f", "num": 51}, {"list_year": "2015", "market": "\u4e3b\u677f", "num": 136}, {"list_year": "2015", "market": "\u521b\u4e1a\u677f", "num": 87}, {"list_year": "2016", "market": "\u4e3b\u677f", "num": 149}, {"list_year": "2016", "market": "\u521b\u4e1a\u677f", "num": 78}, {"list_year": "2017", "market": "\u4e3b\u677f", "num": 297}, {"list_year": "2017", "market": "\u521b\u4e1a\u677f", "num": 141}, {"list_year": "2018", "market": "\u4e3b\u677f", "num": 76}, {"list_year": "2018", "market": "\u521b\u4e1a\u677f", "num": 29}, {"list_year": "2019", "market": "\u4e3b\u677f", "num": 81}, {"list_year": "2019", "market": "\u521b\u4e1a\u677f", "num": 52}, {"list_year": "2019", "market": "\u79d1\u521b\u677f", "num": 70}, {"list_year": "2020", "market": "\u4e3b\u677f", "num": 144}, {"list_year": "2020", "market": "\u521b\u4e1a\u677f", "num": 107}, {"list_year": "2020", "market": "\u5317\u4ea4\u6240", "num": 41}, {"list_year": "2020", "market": "\u79d1\u521b\u677f", "num": 145}, {"list_year": "2021", "market": "\u4e3b\u677f", "num": 122}, {"list_year": "2021", "market": "\u521b\u4e1a\u677f", "num": 199}, {"list_year": "2021", "market": "\u5317\u4ea4\u6240", "num": 41}, {"list_year": "2021", "market": "\u79d1\u521b\u677f", "num": 162}, {"list_year": "2022", "market": "\u4e3b\u677f", "num": 71}, {"list_year": "2022", "market": "\u521b\u4e1a\u677f", "num": 150}, {"list_year": "2022", "market": "\u5317\u4ea4\u6240", "num": 83}, {"list_year": "2022", "market": "\u79d1\u521b\u677f", "num": 124}, {"list_year": "2023", "market": "\u4e3b\u677f", "num": 36}, {"list_year": "2023", "market": "\u521b\u4e1a\u677f", "num": 29}, {"list_year": "2023", "market": "\u5317\u4ea4\u6240", "num": 33}, {"list_year": "2023", "market": "\u79d1\u521b\u677f", "num": 26}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-1b0b7193c34949abaab24161479c3aac.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-1b0b7193c34949abaab24161479c3aac.vega-embed details,
+  #altair-viz-1b0b7193c34949abaab24161479c3aac.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-1b0b7193c34949abaab24161479c3aac"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-1b0b7193c34949abaab24161479c3aac") {
+      outputDiv = document.getElementById("altair-viz-1b0b7193c34949abaab24161479c3aac");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-27c02ddab30cab3e0e0e5cea1ea33ed3"}, "mark": {"type": "line", "point": true}, "encoding": {"color": {"field": "exchange", "type": "nominal"}, "tooltip": [{"field": "list_year", "type": "nominal"}, {"field": "num", "type": "quantitative"}], "x": {"field": "list_year", "type": "ordinal"}, "y": {"field": "num", "type": "quantitative"}}, "title": "\u6309\u4ea4\u6613\u6240\u65b0\u589e\u4e0a\u5e02\u516c\u53f8\u6570\u91cf\uff082023\u5e74\u6570\u636e\u81f35\u6708\uff09", "width": "container", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-27c02ddab30cab3e0e0e5cea1ea33ed3": [{"list_year": "1990", "exchange": "SSE", "num": 7}, {"list_year": "1990", "exchange": "SZSE", "num": 1}, {"list_year": "1991", "exchange": "SZSE", "num": 5}, {"list_year": "1992", "exchange": "SSE", "num": 22}, {"list_year": "1992", "exchange": "SZSE", "num": 18}, {"list_year": "1993", "exchange": "SSE", "num": 72}, {"list_year": "1993", "exchange": "SZSE", "num": 52}, {"list_year": "1994", "exchange": "SSE", "num": 68}, {"list_year": "1994", "exchange": "SZSE", "num": 42}, {"list_year": "1995", "exchange": "SSE", "num": 15}, {"list_year": "1995", "exchange": "SZSE", "num": 9}, {"list_year": "1996", "exchange": "SSE", "num": 103}, {"list_year": "1996", "exchange": "SZSE", "num": 100}, {"list_year": "1997", "exchange": "SSE", "num": 85}, {"list_year": "1997", "exchange": "SZSE", "num": 121}, {"list_year": "1998", "exchange": "SSE", "num": 53}, {"list_year": "1998", "exchange": "SZSE", "num": 53}, {"list_year": "1999", "exchange": "SSE", "num": 46}, {"list_year": "1999", "exchange": "SZSE", "num": 52}, {"list_year": "2000", "exchange": "SSE", "num": 88}, {"list_year": "2000", "exchange": "SZSE", "num": 49}, {"list_year": "2001", "exchange": "SSE", "num": 78}, {"list_year": "2001", "exchange": "SZSE", "num": 1}, {"list_year": "2002", "exchange": "SSE", "num": 70}, {"list_year": "2002", "exchange": "SZSE", "num": 1}, {"list_year": "2003", "exchange": "SSE", "num": 67}, {"list_year": "2004", "exchange": "SSE", "num": 61}, {"list_year": "2004", "exchange": "SZSE", "num": 39}, {"list_year": "2005", "exchange": "SSE", "num": 3}, {"list_year": "2005", "exchange": "SZSE", "num": 12}, {"list_year": "2006", "exchange": "SSE", "num": 14}, {"list_year": "2006", "exchange": "SZSE", "num": 52}, {"list_year": "2007", "exchange": "SSE", "num": 25}, {"list_year": "2007", "exchange": "SZSE", "num": 101}, {"list_year": "2008", "exchange": "SSE", "num": 6}, {"list_year": "2008", "exchange": "SZSE", "num": 71}, {"list_year": "2009", "exchange": "SSE", "num": 9}, {"list_year": "2009", "exchange": "SZSE", "num": 90}, {"list_year": "2010", "exchange": "SSE", "num": 28}, {"list_year": "2010", "exchange": "SZSE", "num": 321}, {"list_year": "2011", "exchange": "SSE", "num": 39}, {"list_year": "2011", "exchange": "SZSE", "num": 243}, {"list_year": "2012", "exchange": "SSE", "num": 26}, {"list_year": "2012", "exchange": "SZSE", "num": 129}, {"list_year": "2013", "exchange": "SSE", "num": 1}, {"list_year": "2013", "exchange": "SZSE", "num": 1}, {"list_year": "2014", "exchange": "SSE", "num": 43}, {"list_year": "2014", "exchange": "SZSE", "num": 82}, {"list_year": "2015", "exchange": "SSE", "num": 90}, {"list_year": "2015", "exchange": "SZSE", "num": 133}, {"list_year": "2016", "exchange": "SSE", "num": 103}, {"list_year": "2016", "exchange": "SZSE", "num": 124}, {"list_year": "2017", "exchange": "SSE", "num": 215}, {"list_year": "2017", "exchange": "SZSE", "num": 223}, {"list_year": "2018", "exchange": "SSE", "num": 57}, {"list_year": "2018", "exchange": "SZSE", "num": 48}, {"list_year": "2019", "exchange": "SSE", "num": 125}, {"list_year": "2019", "exchange": "SZSE", "num": 78}, {"list_year": "2020", "exchange": "BSE", "num": 41}, {"list_year": "2020", "exchange": "SSE", "num": 235}, {"list_year": "2020", "exchange": "SZSE", "num": 161}, {"list_year": "2021", "exchange": "BSE", "num": 41}, {"list_year": "2021", "exchange": "SSE", "num": 250}, {"list_year": "2021", "exchange": "SZSE", "num": 233}, {"list_year": "2022", "exchange": "BSE", "num": 83}, {"list_year": "2022", "exchange": "SSE", "num": 155}, {"list_year": "2022", "exchange": "SZSE", "num": 190}, {"list_year": "2023", "exchange": "BSE", "num": 33}, {"list_year": "2023", "exchange": "SSE", "num": 47}, {"list_year": "2023", "exchange": "SZSE", "num": 44}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<ul class="simple">
+<li><p>2021年新上市公司创新高，达到524家。</p></li>
+<li><p>2022年仍处于历史第3,达到428家。上一个新发高峰是2017年438家。</p></li>
+<li><p>从板块看，2017年主板新发高峰，此后就是创业板和科创板增长较快了。</p></li>
+<li><p>从交易所看，深交所在2010年有个大跃进，近几年来沪深数量基本相当。</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./mywork"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">上市和退市</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">上市公司分类分析</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">交易所和板块</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">沪港通和深港通</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">年度变化</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Eric
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -4,7 +4,9 @@
 format: jb-book
 root: intro
 chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
-- file: test_plot
+- file: mywork/getdata # 注意不加后缀.md，前面也不能加./。
+# - file: mywork/test
+# - file: ./mywork/data_prep
+# - file: ./mywork/test_profile
+# - file: ./mywork/listed
+# - file: ./mywork/2022profit

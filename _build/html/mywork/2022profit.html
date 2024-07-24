@@ -1,0 +1,1897 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>上市公司利润分析 &#8212; reports</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'mywork/2022profit';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/mylogo_p.png" class="logo__image only-light" alt="reports - Home"/>
+    <script>document.write(`<img src="../_static/mylogo_p.png" class="logo__image only-dark" alt="reports - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to my reports
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/waterchinap/jb_reports" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/mywork/2022profit.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>上市公司利润分析</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">数据准备</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">上市公司利润总和的变化</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">利润构成-利润变化的驱动因素</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">利润构成——按板块和交易所</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">利润构成-分行业看</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>上市公司利润分析<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="id2">
+<h2>数据准备<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>从交易所取下的上市公司列表，不包括B股。</p></li>
+<li><p>从东方财富取下的行业分类数据。</p></li>
+<li><p>从东方财富取下的业绩快报数据。</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">showProfile</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">col_profile</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="n">col_profile</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;列名&#39;</span><span class="p">,</span> <span class="s1">&#39;类型&#39;</span><span class="p">,</span> <span class="s1">&#39;缺失比%&#39;</span><span class="p">,</span><span class="s1">&#39;样例&#39;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">col_profile</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;../../mydata/yjbg_y2022_profit.pkl.gz&#39;</span><span class="p">)</span>
+<span class="n">code</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;../../mydata/ashare_basic.pkl.gz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># load data</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;../../mydata/yjbg_y2022_profit.pkl.gz&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">code</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;../../mydata/ashare_basic.pkl.gz&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~/jb_reports/.venv/lib/python3.12/site-packages/pandas/io/pickle.py:185,</span> in <span class="ni">read_pickle</span><span class="nt">(filepath_or_buffer, compression, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span><span class="sd"> Load pickled pandas object (or any object) from file.</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">182</span><span class="sd"> 4    4    9</span>
+<span class="g g-Whitespace">    </span><span class="mi">183</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">184</span> <span class="n">excs_to_catch</span> <span class="o">=</span> <span class="p">(</span><span class="ne">AttributeError</span><span class="p">,</span> <span class="ne">ImportError</span><span class="p">,</span> <span class="ne">ModuleNotFoundError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">185</span> <span class="k">with</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span>     <span class="n">filepath_or_buffer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">187</span>     <span class="s2">&quot;rb&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">188</span>     <span class="n">compression</span><span class="o">=</span><span class="n">compression</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">189</span>     <span class="n">is_text</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">190</span>     <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">191</span> <span class="p">)</span> <span class="k">as</span> <span class="n">handles</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">192</span>     <span class="c1"># 1) try standard library Pickle</span>
+<span class="g g-Whitespace">    </span><span class="mi">193</span>     <span class="c1"># 2) try pickle_compat (older pandas version) to handle subclass changes</span>
+<span class="g g-Whitespace">    </span><span class="mi">194</span>     <span class="c1"># 3) try pickle_compat with latin-1 encoding upon a UnicodeDecodeError</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span>     <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">197</span>         <span class="c1"># TypeError for Cython complaints about object.__new__ vs Tick.__new__</span>
+<span class="g g-Whitespace">    </span><span class="mi">198</span>         <span class="k">try</span><span class="p">:</span>
+
+<span class="nn">File ~/jb_reports/.venv/lib/python3.12/site-packages/pandas/io/common.py:765,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">761</span> <span class="k">if</span> <span class="n">compression</span> <span class="o">==</span> <span class="s2">&quot;gzip&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">762</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">763</span>         <span class="c1"># error: Incompatible types in assignment (expression has type</span>
+<span class="g g-Whitespace">    </span><span class="mi">764</span>         <span class="c1"># &quot;GzipFile&quot;, variable has type &quot;Union[str, BaseBuffer]&quot;)</span>
+<span class="ne">--&gt; </span><span class="mi">765</span>         <span class="n">handle</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">GzipFile</span><span class="p">(</span>  <span class="c1"># type: ignore[assignment]</span>
+<span class="g g-Whitespace">    </span><span class="mi">766</span>             <span class="n">filename</span><span class="o">=</span><span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">767</span>             <span class="n">mode</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">768</span>             <span class="o">**</span><span class="n">compression_args</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">769</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">770</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">771</span>         <span class="n">handle</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">GzipFile</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">772</span>             <span class="c1"># No overload variant of &quot;GzipFile&quot; matches argument types</span>
+<span class="g g-Whitespace">    </span><span class="mi">773</span>             <span class="c1"># &quot;Union[str, BaseBuffer]&quot;, &quot;str&quot;, &quot;Dict[str, Any]&quot;</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">776</span>             <span class="o">**</span><span class="n">compression_args</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">777</span>         <span class="p">)</span>
+
+<span class="nn">File /usr/lib/python3.12/gzip.py:192,</span> in <span class="ni">GzipFile.__init__</span><span class="nt">(self, filename, mode, compresslevel, fileobj, mtime)</span>
+<span class="g g-Whitespace">    </span><span class="mi">190</span>     <span class="n">mode</span> <span class="o">+=</span> <span class="s1">&#39;b&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">191</span> <span class="k">if</span> <span class="n">fileobj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">192</span>     <span class="n">fileobj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">myfileobj</span> <span class="o">=</span> <span class="n">builtins</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span> <span class="ow">or</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">193</span> <span class="k">if</span> <span class="n">filename</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">194</span>     <span class="n">filename</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">fileobj</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../../mydata/yjbg_y2022_profit.pkl.gz&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">showProfile</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(56460, 4)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>列名</th>
+      <th>类型</th>
+      <th>缺失比%</th>
+      <th>样例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>code</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>300197</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>qs</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>20121231</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>profit</td>
+      <td>float64</td>
+      <td>0.019483</td>
+      <td>215906680.37</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>year</td>
+      <td>int32</td>
+      <td>0.000000</td>
+      <td>2012</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">showProfile</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>列名</th>
+      <th>类型</th>
+      <th>缺失比%</th>
+      <th>样例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>code</td>
+      <td>object</td>
+      <td>0.0</td>
+      <td>600764</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>name</td>
+      <td>object</td>
+      <td>0.0</td>
+      <td>中国海防</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>list_day</td>
+      <td>object</td>
+      <td>0.0</td>
+      <td>1996-11-04</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>market</td>
+      <td>object</td>
+      <td>0.0</td>
+      <td>主板A股</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ex</td>
+      <td>object</td>
+      <td>0.0</td>
+      <td>上交所</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>ly</td>
+      <td>int32</td>
+      <td>0.0</td>
+      <td>1996</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>indu</td>
+      <td>object</td>
+      <td>0.0</td>
+      <td>计算机设备</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>由于公司上市会按要求披露上市前的财务数据，比如2022年上市，但业绩报告披露可能会出现前3年，甚至更久远的数据。东方财富的业绩报告显然是把这部分数据放进去了。</p></li>
+<li><p>关于是否要把公司上市之前的数据去除？</p>
+<ul>
+<li><p>从年度总体可比性来说，应该去除，否则历史数据每年都会不一样。比如：2022年看2021年的数据和2023年看2021年的数据会有较大不同。所以在验证上市公司总体利润变化，是新增上市引起的还是已经上市公司利润增长引起的，就应该把以前的数据去除，不然每年的结论可能不一样。</p></li>
+<li><p>但是从分析单个公司的角度来看，不去除更合理一点。</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 删除上市前数据</span>
+<span class="k">def</span> <span class="nf">del_pre</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">code</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;ly&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">code</span><span class="p">[</span><span class="s1">&#39;ly&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">2010</span> <span class="k">else</span> <span class="mi">2010</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;qs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int32&#39;</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">code</span><span class="p">[[</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;ly&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">]])</span>
+    <span class="n">sel</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ly&#39;</span><span class="p">]]</span>
+    <span class="k">return</span> <span class="n">sel</span>
+
+<span class="c1"># 保留上市前数据</span>
+<span class="k">def</span> <span class="nf">keep_pre</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">code</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;ly&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">code</span><span class="p">[</span><span class="s1">&#39;ly&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">2010</span> <span class="k">else</span> <span class="mi">2010</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;qs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int32&#39;</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">code</span><span class="p">[[</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;ly&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">]])</span>
+    <span class="c1"># sel = df[df[&#39;year&#39;] &gt;= df[&#39;ly&#39;]]</span>
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel</span> <span class="o">=</span> <span class="n">del_pre</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">showProfile</span><span class="p">(</span><span class="n">sel</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(41283, 6)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>列名</th>
+      <th>类型</th>
+      <th>缺失比%</th>
+      <th>样例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>code</td>
+      <td>object</td>
+      <td>0.0</td>
+      <td>600853</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>qs</td>
+      <td>object</td>
+      <td>0.0</td>
+      <td>20141231</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>profit</td>
+      <td>float64</td>
+      <td>0.0</td>
+      <td>18013318.12</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>year</td>
+      <td>int32</td>
+      <td>0.0</td>
+      <td>2014</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ly</td>
+      <td>int64</td>
+      <td>0.0</td>
+      <td>2010</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>name</td>
+      <td>object</td>
+      <td>0.0</td>
+      <td>龙建股份</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel</span> <span class="o">=</span> <span class="n">keep_pre</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">showProfile</span><span class="p">(</span><span class="n">sel</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(56460, 6)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>列名</th>
+      <th>类型</th>
+      <th>缺失比%</th>
+      <th>样例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>code</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>300049</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>qs</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>20211231</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>profit</td>
+      <td>float64</td>
+      <td>0.019483</td>
+      <td>95468878.12</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>year</td>
+      <td>int32</td>
+      <td>0.000000</td>
+      <td>2021</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ly</td>
+      <td>int64</td>
+      <td>0.000000</td>
+      <td>2010</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>name</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>福瑞股份</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 多了37%的数据。</span>
+<span class="p">(</span><span class="mi">56460</span><span class="o">-</span><span class="mi">41283</span><span class="p">)</span><span class="o">/</span><span class="mi">41283</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3676331661943173
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h2>上市公司利润总和的变化<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>包括所有披露数据</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-fcfce51a66b34691bc30ac8f67b82a8f.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-fcfce51a66b34691bc30ac8f67b82a8f.vega-embed details,
+  #altair-viz-fcfce51a66b34691bc30ac8f67b82a8f.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-fcfce51a66b34691bc30ac8f67b82a8f"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-fcfce51a66b34691bc30ac8f67b82a8f") {
+      outputDiv = document.getElementById("altair-viz-fcfce51a66b34691bc30ac8f67b82a8f");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-8f079eb34d47446aac72645ed9861d93"}, "mark": {"type": "bar"}, "encoding": {"x": {"axis": {"format": ".2s"}, "field": "profit", "type": "quantitative"}, "y": {"field": "year", "type": "ordinal"}}, "height": 340, "title": "\u603b\u5229\u6da6\u53d8\u5316", "width": "container", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-8f079eb34d47446aac72645ed9861d93": [{"year": 2010, "profit": 1845427989404.7}, {"year": 2011, "profit": 2253045804231.3936}, {"year": 2012, "profit": 2170686123561.3997}, {"year": 2013, "profit": 2508562027999.031}, {"year": 2014, "profit": 2759373482565.75}, {"year": 2015, "profit": 2884374399278.5693}, {"year": 2016, "profit": 3074586003415.21}, {"year": 2017, "profit": 3710739481196.8394}, {"year": 2018, "profit": 3937215260934.3506}, {"year": 2019, "profit": 4230200812142.19}, {"year": 2020, "profit": 4317787470704.66}, {"year": 2021, "profit": 5141388454933.619}, {"year": 2022, "profit": 5186771166747.7}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+      
+  <style>
+      .card_group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        border-radius: 10px;
+        display: inline-block;
+        height: 260px;
+        margin: 1rem;
+        width: 260px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.24);
+      }
+
+      .card_title {
+        border-bottom: 5px;
+        border-bottom-style: dotted;
+        border-bottom-color: grey;
+        margin: 5px;
+        padding: 5px;
+        font-size: 2em;
+      }
+      .card_content {
+        font-size: 4em;
+        margin: 5px;
+        align-self: center;
+        height: 200px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+      }
+    </style>
+
+      <div class ='card_group'>
+      <div class = 'card'>
+      <div class = 'card_title'>总体年增长率</div>
+      <div class = 'card_content'>8.99%</div>
+      </div>
+      </div>
+</div></div>
+</div>
+<ul class="simple">
+<li><p>上市公司总体利润保持增长,特别是疫情爆发后第2年,即2021年,出现了爆涨.</p></li>
+<li><p>近12年的增长率为9%，和不保留上市前数据比，低了一个点。原因是2010年的数据增加了？这是奇怪点之一。</p></li>
+</ul>
+<p>以下观察利润的主要统计指标:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-3ebb890b09134f9a91a2bf4cc6b7a7d6.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-3ebb890b09134f9a91a2bf4cc6b7a7d6.vega-embed details,
+  #altair-viz-3ebb890b09134f9a91a2bf4cc6b7a7d6.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-3ebb890b09134f9a91a2bf4cc6b7a7d6"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-3ebb890b09134f9a91a2bf4cc6b7a7d6") {
+      outputDiv = document.getElementById("altair-viz-3ebb890b09134f9a91a2bf4cc6b7a7d6");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-93f31909e11aca97ef4b61f3ca222164"}, "mark": {"type": "bar"}, "encoding": {"x": {"axis": {"format": ".2s"}, "field": "mean", "type": "quantitative"}, "y": {"field": "year", "type": "ordinal"}}, "height": 340, "title": "\u4e0a\u5e02\u516c\u53f8\u5229\u6da6\u5e73\u5747\u503c\u53d8\u5316", "width": "container", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-93f31909e11aca97ef4b61f3ca222164": [{"year": 2010, "mean": 703556229.2812428, "median": 83080980.65, "idxmin": 5377, "idxmax": 3297, "count": 2623}, {"year": 2011, "mean": 711413263.0980085, "median": 76689666.32, "idxmin": 3181, "idxmax": 3298, "count": 3167}, {"year": 2012, "mean": 616147068.850809, "median": 65375902.9, "idxmin": 3182, "idxmax": 3299, "count": 3523}, {"year": 2013, "mean": 632676425.7248499, "median": 60660291.84, "idxmin": 23109, "idxmax": 3300, "count": 3965}, {"year": 2014, "mean": 657463302.9701573, "median": 62675976.22, "idxmin": 19068, "idxmax": 3301, "count": 4197}, {"year": 2015, "mean": 675814057.9378092, "median": 67174988.675, "idxmin": 27258, "idxmax": 3302, "count": 4268}, {"year": 2016, "mean": 676774378.9159608, "median": 84090715.43, "idxmin": 3524, "idxmax": 3303, "count": 4543}, {"year": 2017, "mean": 761646034.7284154, "median": 91910551.07, "idxmin": 3525, "idxmax": 3304, "count": 4872}, {"year": 2018, "mean": 778567384.0091655, "median": 91811779.99, "idxmin": 18084, "idxmax": 3305, "count": 5057}, {"year": 2019, "mean": 836008065.640749, "median": 99882269.495, "idxmin": 22920, "idxmax": 3306, "count": 5060}, {"year": 2020, "mean": 853317681.9574428, "median": 111236988.13499999, "idxmin": 21972, "idxmax": 3307, "count": 5060}, {"year": 2021, "mean": 1016084674.8880672, "median": 121975567.66499999, "idxmin": 2414, "idxmax": 3308, "count": 5060}, {"year": 2022, "mean": 1026270511.8218639, "median": 106183271.13499999, "idxmin": 3387, "idxmax": 3309, "count": 5054}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-d418b5e0879948eca793703520dbec36.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-d418b5e0879948eca793703520dbec36.vega-embed details,
+  #altair-viz-d418b5e0879948eca793703520dbec36.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-d418b5e0879948eca793703520dbec36"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-d418b5e0879948eca793703520dbec36") {
+      outputDiv = document.getElementById("altair-viz-d418b5e0879948eca793703520dbec36");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-93f31909e11aca97ef4b61f3ca222164"}, "mark": {"type": "bar"}, "encoding": {"x": {"axis": {"format": ".2s"}, "field": "median", "type": "quantitative"}, "y": {"field": "year", "type": "ordinal"}}, "height": 340, "title": "\u4e0a\u5e02\u516c\u53f8\u5229\u6da6\u4e2d\u4f4d\u6570\u53d8\u5316", "width": "container", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-93f31909e11aca97ef4b61f3ca222164": [{"year": 2010, "mean": 703556229.2812428, "median": 83080980.65, "idxmin": 5377, "idxmax": 3297, "count": 2623}, {"year": 2011, "mean": 711413263.0980085, "median": 76689666.32, "idxmin": 3181, "idxmax": 3298, "count": 3167}, {"year": 2012, "mean": 616147068.850809, "median": 65375902.9, "idxmin": 3182, "idxmax": 3299, "count": 3523}, {"year": 2013, "mean": 632676425.7248499, "median": 60660291.84, "idxmin": 23109, "idxmax": 3300, "count": 3965}, {"year": 2014, "mean": 657463302.9701573, "median": 62675976.22, "idxmin": 19068, "idxmax": 3301, "count": 4197}, {"year": 2015, "mean": 675814057.9378092, "median": 67174988.675, "idxmin": 27258, "idxmax": 3302, "count": 4268}, {"year": 2016, "mean": 676774378.9159608, "median": 84090715.43, "idxmin": 3524, "idxmax": 3303, "count": 4543}, {"year": 2017, "mean": 761646034.7284154, "median": 91910551.07, "idxmin": 3525, "idxmax": 3304, "count": 4872}, {"year": 2018, "mean": 778567384.0091655, "median": 91811779.99, "idxmin": 18084, "idxmax": 3305, "count": 5057}, {"year": 2019, "mean": 836008065.640749, "median": 99882269.495, "idxmin": 22920, "idxmax": 3306, "count": 5060}, {"year": 2020, "mean": 853317681.9574428, "median": 111236988.13499999, "idxmin": 21972, "idxmax": 3307, "count": 5060}, {"year": 2021, "mean": 1016084674.8880672, "median": 121975567.66499999, "idxmin": 2414, "idxmax": 3308, "count": 5060}, {"year": 2022, "mean": 1026270511.8218639, "median": 106183271.13499999, "idxmin": 3387, "idxmax": 3309, "count": 5054}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<ul class="simple">
+<li><p>上市公司的平均利润总体略有增长，但2022年有较大下降，大约为10亿左右。</p></li>
+<li><p>上市公司利润中位数在2022年急剧下降，略高于1亿。</p></li>
+<li><p>平均值和中位数差一个数量级，说明上市公司利润的分布是左偏的。</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-4ca0a5bab41a4ee68ebf30806f4cfe2d.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-4ca0a5bab41a4ee68ebf30806f4cfe2d.vega-embed details,
+  #altair-viz-4ca0a5bab41a4ee68ebf30806f4cfe2d.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-4ca0a5bab41a4ee68ebf30806f4cfe2d"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-4ca0a5bab41a4ee68ebf30806f4cfe2d") {
+      outputDiv = document.getElementById("altair-viz-4ca0a5bab41a4ee68ebf30806f4cfe2d");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "bar", "color": "brown"}, "encoding": {"text": {"field": "name", "type": "nominal"}, "x": {"axis": {"format": ".2s"}, "field": "profit", "type": "quantitative"}, "y": {"field": "year", "type": "ordinal"}}, "title": "\u5386\u5e74\u4e8f\u635f\u738b"}, {"mark": {"type": "text", "align": "left", "color": "white"}, "encoding": {"text": {"field": "name", "type": "nominal"}, "x": {"axis": {"format": ".2s"}, "field": "profit", "type": "quantitative"}, "y": {"field": "year", "type": "ordinal"}}, "title": "\u5386\u5e74\u4e8f\u635f\u738b"}], "data": {"name": "data-51a623b66328342d6efac3c87537a324"}, "height": 340, "width": "container", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-51a623b66328342d6efac3c87537a324": [{"year": 2010, "code": "000932", "name": "\u534e\u83f1\u94a2\u94c1", "profit": -2643626083.51}, {"year": 2011, "code": "601919", "name": "\u4e2d\u8fdc\u6d77\u63a7", "profit": -10448856161.2}, {"year": 2012, "code": "601919", "name": "\u4e2d\u8fdc\u6d77\u63a7", "profit": -9559139238.95}, {"year": 2013, "code": "601975", "name": "\u62db\u5546\u5357\u6cb9", "profit": -5921581446.19}, {"year": 2014, "code": "601600", "name": "\u4e2d\u56fd\u94dd\u4e1a", "profit": -16208170000.0}, {"year": 2015, "code": "600307", "name": "\u9152\u94a2\u5b8f\u5174", "profit": -7363873554.6}, {"year": 2016, "code": "600871", "name": "\u77f3\u5316\u6cb9\u670d", "profit": -16114763000.0}, {"year": 2017, "code": "600871", "name": "\u77f3\u5316\u6cb9\u670d", "profit": -10589524000.0}, {"year": 2018, "code": "002354", "name": "\u5929\u5a31\u6570\u79d1", "profit": -7150585884.37}, {"year": 2019, "code": "000792", "name": "\u76d0\u6e56\u80a1\u4efd", "profit": -45859976778.09}, {"year": 2020, "code": "600221", "name": "\u6d77\u822a\u63a7\u80a1", "profit": -64003308000.0}, {"year": 2021, "code": "002024", "name": "ST\u6613\u8d2d", "profit": -43264609000.0}, {"year": 2022, "code": "601111", "name": "\u4e2d\u56fd\u56fd\u822a", "profit": -38619499000.0}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<ul class="simple">
+<li><p>上市公司亏损王呈现出不断创新高的情况。</p></li>
+<li><p>谁又能想到中海远控，曾经勇巨亏王呢？</p></li>
+<li><p>疫情来临之际，中海远控大翻身，而同为交通行业的大航空，却整整苦了三年。</p></li>
+<li><p>看到其中的一个亏损王，感觉自己也算是亲历一段历史。</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maxdf</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">profit_quant</span><span class="p">[</span><span class="s1">&#39;idxmax&#39;</span><span class="p">],[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;profit&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">maxdf</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;profit:Q&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;.2s&#39;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;year:O&#39;</span><span class="p">),</span>
+    <span class="n">text</span><span class="o">=</span><span class="s1">&#39;name&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;历年赢利王&#39;</span><span class="p">,</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="s1">&#39;container&#39;</span><span class="p">,</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="mi">340</span>
+<span class="p">)</span>
+<span class="n">base</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span> <span class="o">+</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span><span class="n">align</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-29650401b7984a6894bee5db8a9f9aab.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-29650401b7984a6894bee5db8a9f9aab.vega-embed details,
+  #altair-viz-29650401b7984a6894bee5db8a9f9aab.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-29650401b7984a6894bee5db8a9f9aab"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-29650401b7984a6894bee5db8a9f9aab") {
+      outputDiv = document.getElementById("altair-viz-29650401b7984a6894bee5db8a9f9aab");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "bar"}, "encoding": {"text": {"field": "name", "type": "nominal"}, "x": {"axis": {"format": ".2s"}, "field": "profit", "type": "quantitative"}, "y": {"field": "year", "type": "ordinal"}}, "title": "\u5386\u5e74\u8d62\u5229\u738b"}, {"mark": {"type": "text", "align": "right", "color": "white"}, "encoding": {"text": {"field": "name", "type": "nominal"}, "x": {"axis": {"format": ".2s"}, "field": "profit", "type": "quantitative"}, "y": {"field": "year", "type": "ordinal"}}, "title": "\u5386\u5e74\u8d62\u5229\u738b"}], "data": {"name": "data-5cee42fe8868c3c63c1d64d187034dce"}, "height": 340, "width": "container", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-5cee42fe8868c3c63c1d64d187034dce": [{"year": 2010, "code": "601398", "name": "\u5de5\u5546\u94f6\u884c", "profit": 165156000000.0}, {"year": 2011, "code": "601398", "name": "\u5de5\u5546\u94f6\u884c", "profit": 208265000000.0}, {"year": 2012, "code": "601398", "name": "\u5de5\u5546\u94f6\u884c", "profit": 238532000000.0}, {"year": 2013, "code": "601398", "name": "\u5de5\u5546\u94f6\u884c", "profit": 262649000000.0}, {"year": 2014, "code": "601398", "name": "\u5de5\u5546\u94f6\u884c", "profit": 275811000000.0}, {"year": 2015, "code": "601398", "name": "\u5de5\u5546\u94f6\u884c", "profit": 277131000000.0}, {"year": 2016, "code": "601398", "name": "\u5de5\u5546\u94f6\u884c", "profit": 278249000000.0}, {"year": 2017, "code": "601398", "name": "\u5de5\u5546\u94f6\u884c", "profit": 286049000000.0}, {"year": 2018, "code": "601398", "name": "\u5de5\u5546\u94f6\u884c", "profit": 297676000000.0}, {"year": 2019, "code": "601398", "name": "\u5de5\u5546\u94f6\u884c", "profit": 312224000000.0}, {"year": 2020, "code": "601398", "name": "\u5de5\u5546\u94f6\u884c", "profit": 315906000000.0}, {"year": 2021, "code": "601398", "name": "\u5de5\u5546\u94f6\u884c", "profit": 348338000000.0}, {"year": 2022, "code": "601398", "name": "\u5de5\u5546\u94f6\u884c", "profit": 360483000000.0}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<ul class="simple">
+<li><p>赢利王没什么惊喜，宇宙第一行，永远行，疫情完全没受到影响。可怕。</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>利润构成-利润变化的驱动因素<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>上市公司上市当年的利润记为新增上市公司驱动的利润，象是给整个池子注入资本。</p></li>
+<li><p>上市公司上市后第二年的利润增长做为池子本身的利润增长驱动。</p></li>
+<li><p>上市公司的利润增长是不是IPO的因素更重要呢？</p></li>
+<li><p>由于没有删除上市前数据，所以这个分析应该没有参考性。</p></li>
+<li><p>只是用来和删除了的对比一下，这块差别较大。但似乎也没有影响基本结论。</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-e006fed8470f4f2e941758e73e795b8b.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-e006fed8470f4f2e941758e73e795b8b.vega-embed details,
+  #altair-viz-e006fed8470f4f2e941758e73e795b8b.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-e006fed8470f4f2e941758e73e795b8b"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-e006fed8470f4f2e941758e73e795b8b") {
+      outputDiv = document.getElementById("altair-viz-e006fed8470f4f2e941758e73e795b8b");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-93f31909e11aca97ef4b61f3ca222164"}, "mark": {"type": "bar"}, "encoding": {"x": {"axis": {"format": ".0f"}, "field": "count", "type": "quantitative"}, "y": {"field": "year", "type": "ordinal"}}, "height": 340, "title": "\u4e0a\u5e02\u516c\u53f8\u62a5\u544a\u6570\u91cf\u53d8\u5316", "width": "container", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-93f31909e11aca97ef4b61f3ca222164": [{"year": 2010, "mean": 703556229.2812428, "median": 83080980.65, "idxmin": 5377, "idxmax": 3297, "count": 2623}, {"year": 2011, "mean": 711413263.0980085, "median": 76689666.32, "idxmin": 3181, "idxmax": 3298, "count": 3167}, {"year": 2012, "mean": 616147068.850809, "median": 65375902.9, "idxmin": 3182, "idxmax": 3299, "count": 3523}, {"year": 2013, "mean": 632676425.7248499, "median": 60660291.84, "idxmin": 23109, "idxmax": 3300, "count": 3965}, {"year": 2014, "mean": 657463302.9701573, "median": 62675976.22, "idxmin": 19068, "idxmax": 3301, "count": 4197}, {"year": 2015, "mean": 675814057.9378092, "median": 67174988.675, "idxmin": 27258, "idxmax": 3302, "count": 4268}, {"year": 2016, "mean": 676774378.9159608, "median": 84090715.43, "idxmin": 3524, "idxmax": 3303, "count": 4543}, {"year": 2017, "mean": 761646034.7284154, "median": 91910551.07, "idxmin": 3525, "idxmax": 3304, "count": 4872}, {"year": 2018, "mean": 778567384.0091655, "median": 91811779.99, "idxmin": 18084, "idxmax": 3305, "count": 5057}, {"year": 2019, "mean": 836008065.640749, "median": 99882269.495, "idxmin": 22920, "idxmax": 3306, "count": 5060}, {"year": 2020, "mean": 853317681.9574428, "median": 111236988.13499999, "idxmin": 21972, "idxmax": 3307, "count": 5060}, {"year": 2021, "mean": 1016084674.8880672, "median": 121975567.66499999, "idxmin": 2414, "idxmax": 3308, "count": 5060}, {"year": 2022, "mean": 1026270511.8218639, "median": 106183271.13499999, "idxmin": 3387, "idxmax": 3309, "count": 5054}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<ul class="simple">
+<li><p>这就是保留上市前数据最大的奇怪点：近几年的报告数居然几乎相同？！</p></li>
+<li><p>最近几年IPO增长很快，利润增长是不是IPO驱动的呢？</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-461730df3de946dc9010e5462745972d.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-461730df3de946dc9010e5462745972d.vega-embed details,
+  #altair-viz-461730df3de946dc9010e5462745972d.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-461730df3de946dc9010e5462745972d"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-461730df3de946dc9010e5462745972d") {
+      outputDiv = document.getElementById("altair-viz-461730df3de946dc9010e5462745972d");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-aaee7695d3b27677f97769233816cd8c"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "cat", "type": "nominal"}, "x": {"aggregate": "sum", "axis": {"format": ".2s"}, "field": "profit", "type": "quantitative"}, "y": {"field": "year", "type": "ordinal"}}, "height": 340, "title": "\u5229\u6da6\u53d8\u5316\u9a71\u52a8\u56e0\u7d20", "width": "container", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-aaee7695d3b27677f97769233816cd8c": [{"year": 2010, "cat": "base", "profit": 1845427989404.7}, {"year": 2011, "cat": "base", "profit": 1845427989404.7}, {"year": 2012, "cat": "base", "profit": 2253045804231.3936}, {"year": 2013, "cat": "base", "profit": 2170686123561.3994}, {"year": 2014, "cat": "base", "profit": 2508562027999.031}, {"year": 2015, "cat": "base", "profit": 2759373482565.75}, {"year": 2016, "cat": "base", "profit": 2884374399278.5693}, {"year": 2017, "cat": "base", "profit": 3074586003415.21}, {"year": 2018, "cat": "base", "profit": 3710739481196.839}, {"year": 2019, "cat": "base", "profit": 3937215260934.3506}, {"year": 2020, "cat": "base", "profit": 4230200812142.19}, {"year": 2021, "cat": "base", "profit": 4317787470704.66}, {"year": 2022, "cat": "base", "profit": 5141388454933.619}, {"year": 2010, "cat": "\u589e\u957f\u9a71\u52a8", "profit": 0.0}, {"year": 2011, "cat": "\u589e\u957f\u9a71\u52a8", "profit": 360365450850.5036}, {"year": 2012, "cat": "\u589e\u957f\u9a71\u52a8", "profit": -114349520022.8239}, {"year": 2013, "cat": "\u589e\u957f\u9a71\u52a8", "profit": 326801148973.8911}, {"year": 2014, "cat": "\u589e\u957f\u9a71\u52a8", "profit": 227300937348.89923}, {"year": 2015, "cat": "\u589e\u957f\u9a71\u52a8", "profit": 44419560858.53934}, {"year": 2016, "cat": "\u589e\u957f\u9a71\u52a8", "profit": 120980965093.70062}, {"year": 2017, "cat": "\u589e\u957f\u9a71\u52a8", "profit": 560726360421.8894}, {"year": 2018, "cat": "\u589e\u957f\u9a71\u52a8", "profit": 140019269538.27124}, {"year": 2019, "cat": "\u589e\u957f\u9a71\u52a8", "profit": 132533548833.39935}, {"year": 2020, "cat": "\u589e\u957f\u9a71\u52a8", "profit": -13618405905.92978}, {"year": 2021, "cat": "\u589e\u957f\u9a71\u52a8", "profit": 670293213363.299}, {"year": 2022, "cat": "\u589e\u957f\u9a71\u52a8", "profit": -285516869140.67896}, {"year": 2010, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 0.0}, {"year": 2011, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 47252363976.19}, {"year": 2012, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 31989839352.83}, {"year": 2013, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 11074755463.74}, {"year": 2014, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 23510517217.82}, {"year": 2015, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 80581355854.28}, {"year": 2016, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 69230639042.94}, {"year": 2017, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 75427117359.74}, {"year": 2018, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 86456510199.24}, {"year": 2019, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 160452002374.44}, {"year": 2020, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 101205064468.4}, {"year": 2021, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 153307770865.66}, {"year": 2022, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 330899580954.76}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<ul class="simple">
+<li><p>可以看出，大部分时候，是已上市公司利润增长驱动的。只有少数例外。</p></li>
+<li><p>其中，2015年和最近2022年，出出了已上市公司亏损，利润增长全部由当年新发公司驱动。</p></li>
+<li><p>从大规律上看，上市公司的利润在爆发后，容易第二年就疲软。2017年和2021年就是个例子。</p></li>
+<li><p>下图上两个驱动因素的详细对比。</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-15225730c09b4eb2b83bdd90640f2884.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-15225730c09b4eb2b83bdd90640f2884.vega-embed details,
+  #altair-viz-15225730c09b4eb2b83bdd90640f2884.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-15225730c09b4eb2b83bdd90640f2884"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-15225730c09b4eb2b83bdd90640f2884") {
+      outputDiv = document.getElementById("altair-viz-15225730c09b4eb2b83bdd90640f2884");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-e3dcb2ec371357d19d7dbeb6dfb1d62e"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "cat", "type": "nominal"}, "x": {"aggregate": "sum", "axis": {"format": ".2s"}, "field": "profit", "type": "quantitative"}, "y": {"field": "year", "type": "ordinal"}}, "height": 340, "title": "\u4e24\u79cd\u5229\u6da6\u589e\u957f\u9a71\u52a8\u56e0\u7d20\u5bf9\u6bd4", "width": "container", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-e3dcb2ec371357d19d7dbeb6dfb1d62e": [{"year": 2010, "cat": "\u589e\u957f\u9a71\u52a8", "profit": 0.0}, {"year": 2011, "cat": "\u589e\u957f\u9a71\u52a8", "profit": 360365450850.5036}, {"year": 2012, "cat": "\u589e\u957f\u9a71\u52a8", "profit": -114349520022.8239}, {"year": 2013, "cat": "\u589e\u957f\u9a71\u52a8", "profit": 326801148973.8911}, {"year": 2014, "cat": "\u589e\u957f\u9a71\u52a8", "profit": 227300937348.89923}, {"year": 2015, "cat": "\u589e\u957f\u9a71\u52a8", "profit": 44419560858.53934}, {"year": 2016, "cat": "\u589e\u957f\u9a71\u52a8", "profit": 120980965093.70062}, {"year": 2017, "cat": "\u589e\u957f\u9a71\u52a8", "profit": 560726360421.8894}, {"year": 2018, "cat": "\u589e\u957f\u9a71\u52a8", "profit": 140019269538.27124}, {"year": 2019, "cat": "\u589e\u957f\u9a71\u52a8", "profit": 132533548833.39935}, {"year": 2020, "cat": "\u589e\u957f\u9a71\u52a8", "profit": -13618405905.92978}, {"year": 2021, "cat": "\u589e\u957f\u9a71\u52a8", "profit": 670293213363.299}, {"year": 2022, "cat": "\u589e\u957f\u9a71\u52a8", "profit": -285516869140.67896}, {"year": 2010, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 0.0}, {"year": 2011, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 47252363976.19}, {"year": 2012, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 31989839352.83}, {"year": 2013, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 11074755463.74}, {"year": 2014, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 23510517217.82}, {"year": 2015, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 80581355854.28}, {"year": 2016, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 69230639042.94}, {"year": 2017, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 75427117359.74}, {"year": 2018, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 86456510199.24}, {"year": 2019, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 160452002374.44}, {"year": 2020, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 101205064468.4}, {"year": 2021, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 153307770865.66}, {"year": 2022, "cat": "\u65b0\u53d1\u9a71\u52a8", "profit": 330899580954.76}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<ul class="simple">
+<li><p>谁能想到疫情第2年，上市公司却出现史诗性的暴涨。</p></li>
+<li><p>而到了第三年，增长不再还转为亏损。</p></li>
+<li><p>这个地方也和不停留上市前数据有很大不同，2022年以前上市的公司亏损比不保留数据要大数倍，什么原因？</p></li>
+</ul>
+</section>
+<section id="id5">
+<h2>利润构成——按板块和交易所<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>这方面应该符合常识认知。</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-e5afbea19afa450a86139af45e6c0ea3.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-e5afbea19afa450a86139af45e6c0ea3.vega-embed details,
+  #altair-viz-e5afbea19afa450a86139af45e6c0ea3.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-e5afbea19afa450a86139af45e6c0ea3"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-e5afbea19afa450a86139af45e6c0ea3") {
+      outputDiv = document.getElementById("altair-viz-e5afbea19afa450a86139af45e6c0ea3");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-29a31c1f7aa668ac58117ad4660627ba"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "market", "type": "nominal"}, "x": {"aggregate": "sum", "axis": {"format": ".2s"}, "field": "profit", "type": "quantitative"}, "y": {"field": "year", "type": "ordinal"}}, "height": 340, "title": "\u4e0d\u540c\u677f\u5757\u5229\u6da6\u53d8\u5316", "width": "container", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-29a31c1f7aa668ac58117ad4660627ba": [{"year": 2010, "market": "\u4e3b\u677fA\u80a1", "profit": 1816957799178.06}, {"year": 2010, "market": "\u521b\u4e1a\u677f", "profit": 25983898534.3}, {"year": 2010, "market": "\u79d1\u521b\u677f", "profit": 2486291692.34}, {"year": 2011, "market": "\u4e3b\u677fA\u80a1", "profit": 2208217581056.953}, {"year": 2011, "market": "\u521b\u4e1a\u677f", "profit": 42108721816.23}, {"year": 2011, "market": "\u79d1\u521b\u677f", "profit": 2719501358.21}, {"year": 2012, "market": "\u4e3b\u677fA\u80a1", "profit": 2124444273270.18}, {"year": 2012, "market": "\u521b\u4e1a\u677f", "profit": 44680913768.35}, {"year": 2012, "market": "\u79d1\u521b\u677f", "profit": 1560936522.8700001}, {"year": 2013, "market": "\u4e3b\u677fA\u80a1", "profit": 2453457342167.22}, {"year": 2013, "market": "\u521b\u4e1a\u677f", "profit": 52000215478.25}, {"year": 2013, "market": "\u79d1\u521b\u677f", "profit": 3104470353.56}, {"year": 2014, "market": "\u4e3b\u677fA\u80a1", "profit": 2685849322677.75}, {"year": 2014, "market": "\u521b\u4e1a\u677f", "profit": 67224472930.96}, {"year": 2014, "market": "\u79d1\u521b\u677f", "profit": 6299686957.04}, {"year": 2015, "market": "\u4e3b\u677fA\u80a1", "profit": 2792075436996.94}, {"year": 2015, "market": "\u521b\u4e1a\u677f", "profit": 84422863061.32}, {"year": 2015, "market": "\u79d1\u521b\u677f", "profit": 7876099220.309999}, {"year": 2016, "market": "\u4e3b\u677fA\u80a1", "profit": 2939245059014.6}, {"year": 2016, "market": "\u521b\u4e1a\u677f", "profit": 121544192879.79}, {"year": 2016, "market": "\u79d1\u521b\u677f", "profit": 13796751520.82}, {"year": 2017, "market": "\u4e3b\u677fA\u80a1", "profit": 3542630797925.64}, {"year": 2017, "market": "\u521b\u4e1a\u677f", "profit": 145570832788.86}, {"year": 2017, "market": "\u79d1\u521b\u677f", "profit": 22537850482.34}, {"year": 2018, "market": "\u4e3b\u677fA\u80a1", "profit": 3819738304186.01}, {"year": 2018, "market": "\u521b\u4e1a\u677f", "profit": 93251574686.43}, {"year": 2018, "market": "\u79d1\u521b\u677f", "profit": 24225382061.91}, {"year": 2019, "market": "\u4e3b\u677fA\u80a1", "profit": 4072814709384.3}, {"year": 2019, "market": "\u521b\u4e1a\u677f", "profit": 127252951641.99}, {"year": 2019, "market": "\u79d1\u521b\u677f", "profit": 30133151115.9}, {"year": 2020, "market": "\u4e3b\u677fA\u80a1", "profit": 4085411027863.2}, {"year": 2020, "market": "\u521b\u4e1a\u677f", "profit": 175136704370.99}, {"year": 2020, "market": "\u79d1\u521b\u677f", "profit": 57239738470.47}, {"year": 2021, "market": "\u4e3b\u677fA\u80a1", "profit": 4823105473421.91}, {"year": 2021, "market": "\u521b\u4e1a\u677f", "profit": 211990582788.92}, {"year": 2021, "market": "\u79d1\u521b\u677f", "profit": 106292398722.79}, {"year": 2022, "market": "\u4e3b\u677fA\u80a1", "profit": 4841190997473.3}, {"year": 2022, "market": "\u521b\u4e1a\u677f", "profit": 232895624606.91}, {"year": 2022, "market": "\u79d1\u521b\u677f", "profit": 112684544667.49}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-31efbebdb8df4a38b56c7608704ca38d.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-31efbebdb8df4a38b56c7608704ca38d.vega-embed details,
+  #altair-viz-31efbebdb8df4a38b56c7608704ca38d.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-31efbebdb8df4a38b56c7608704ca38d"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-31efbebdb8df4a38b56c7608704ca38d") {
+      outputDiv = document.getElementById("altair-viz-31efbebdb8df4a38b56c7608704ca38d");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-2d249bfebda4d88600a4f6d2fc562976"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "ex", "type": "nominal"}, "x": {"aggregate": "sum", "axis": {"format": ".2s"}, "field": "profit", "type": "quantitative"}, "y": {"field": "year", "type": "ordinal"}}, "height": 340, "title": "\u4e0d\u540c\u4ea4\u6613\u6240\u5229\u6da6\u53d8\u5316", "width": "container", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-2d249bfebda4d88600a4f6d2fc562976": [{"year": 2010, "ex": "\u4e0a\u4ea4\u6240", "profit": 1554054694239.49}, {"year": 2010, "ex": "\u5317\u4ea4\u6240", "profit": 296112799.86}, {"year": 2010, "ex": "\u6df1\u4ea4\u6240", "profit": 291077182365.35}, {"year": 2011, "ex": "\u4e0a\u4ea4\u6240", "profit": 1914797660088.8032}, {"year": 2011, "ex": "\u5317\u4ea4\u6240", "profit": 229138630.01}, {"year": 2011, "ex": "\u6df1\u4ea4\u6240", "profit": 338019005512.58}, {"year": 2012, "ex": "\u4e0a\u4ea4\u6240", "profit": 1854380058291.6}, {"year": 2012, "ex": "\u5317\u4ea4\u6240", "profit": 569151771.25}, {"year": 2012, "ex": "\u6df1\u4ea4\u6240", "profit": 315736913498.55}, {"year": 2013, "ex": "\u4e0a\u4ea4\u6240", "profit": 2127967200944.25}, {"year": 2013, "ex": "\u5317\u4ea4\u6240", "profit": 1358856499.61}, {"year": 2013, "ex": "\u6df1\u4ea4\u6240", "profit": 379235970555.17}, {"year": 2014, "ex": "\u4e0a\u4ea4\u6240", "profit": 2309711619501.0}, {"year": 2014, "ex": "\u5317\u4ea4\u6240", "profit": 1611845714.33}, {"year": 2014, "ex": "\u6df1\u4ea4\u6240", "profit": 448050017350.42}, {"year": 2015, "ex": "\u4e0a\u4ea4\u6240", "profit": 2371277206737.42}, {"year": 2015, "ex": "\u5317\u4ea4\u6240", "profit": 2393544503.22}, {"year": 2015, "ex": "\u6df1\u4ea4\u6240", "profit": 510703648037.93}, {"year": 2016, "ex": "\u4e0a\u4ea4\u6240", "profit": 2424707802584.96}, {"year": 2016, "ex": "\u5317\u4ea4\u6240", "profit": 3364041975.62}, {"year": 2016, "ex": "\u6df1\u4ea4\u6240", "profit": 646514158854.63}, {"year": 2017, "ex": "\u4e0a\u4ea4\u6240", "profit": 2869985492442.65}, {"year": 2017, "ex": "\u5317\u4ea4\u6240", "profit": 4636771223.25}, {"year": 2017, "ex": "\u6df1\u4ea4\u6240", "profit": 836117217530.94}, {"year": 2018, "ex": "\u4e0a\u4ea4\u6240", "profit": 3217827870219.1}, {"year": 2018, "ex": "\u5317\u4ea4\u6240", "profit": 5537579405.87}, {"year": 2018, "ex": "\u6df1\u4ea4\u6240", "profit": 713849811309.38}, {"year": 2019, "ex": "\u4e0a\u4ea4\u6240", "profit": 3513579634565.85}, {"year": 2019, "ex": "\u5317\u4ea4\u6240", "profit": 6698541857.01}, {"year": 2019, "ex": "\u6df1\u4ea4\u6240", "profit": 709922635719.3301}, {"year": 2020, "ex": "\u4e0a\u4ea4\u6240", "profit": 3348325241150.41}, {"year": 2020, "ex": "\u5317\u4ea4\u6240", "profit": 8179020772.09}, {"year": 2020, "ex": "\u6df1\u4ea4\u6240", "profit": 961283208782.16}, {"year": 2021, "ex": "\u4e0a\u4ea4\u6240", "profit": 4166087233258.56}, {"year": 2021, "ex": "\u5317\u4ea4\u6240", "profit": 10922971573.68}, {"year": 2021, "ex": "\u6df1\u4ea4\u6240", "profit": 964378250101.38}, {"year": 2022, "ex": "\u4e0a\u4ea4\u6240", "profit": 4255346860074.5}, {"year": 2022, "ex": "\u5317\u4ea4\u6240", "profit": 11626378234.14}, {"year": 2022, "ex": "\u6df1\u4ea4\u6240", "profit": 919797928439.06}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<ul class="simple">
+<li><p>2020年对上交所打击比较大。</p></li>
+<li><p>但第二年2021年，上交所又迎来狂欢。</p></li>
+</ul>
+</section>
+<section id="id6">
+<h2>利润构成-分行业看<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>一般人可能不知道，中国上市银行有多挣钱，不然无法解释为什么银行股在大部分时候都被嫌弃。</p></li>
+<li><p>先看一下从2010年以来，每年的利润额前十榜上有哪些公司。</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-c85e8e8d7c1e4b0bb121f578ea973df9.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-c85e8e8d7c1e4b0bb121f578ea973df9.vega-embed details,
+  #altair-viz-c85e8e8d7c1e4b0bb121f578ea973df9.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-c85e8e8d7c1e4b0bb121f578ea973df9"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-c85e8e8d7c1e4b0bb121f578ea973df9") {
+      outputDiv = document.getElementById("altair-viz-c85e8e8d7c1e4b0bb121f578ea973df9");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-18f7e398efd38664eb8b6a48787e18f2"}, "mark": {"type": "bar"}, "encoding": {"x": {"field": "count", "type": "quantitative"}, "y": {"field": "name", "sort": "-x", "type": "ordinal"}}, "height": 440, "title": "2010\u81f32022\u5229\u6da6\u989d\u524d\u5341\u4e0a\u699c\u6b21\u6570\u7edf\u8ba1", "width": "container", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-18f7e398efd38664eb8b6a48787e18f2": [{"name": "\u5de5\u5546\u94f6\u884c", "count": 13}, {"name": "\u519c\u4e1a\u94f6\u884c", "count": 13}, {"name": "\u4ea4\u901a\u94f6\u884c", "count": 13}, {"name": "\u62db\u5546\u94f6\u884c", "count": 13}, {"name": "\u4e2d\u56fd\u94f6\u884c", "count": 13}, {"name": "\u5efa\u8bbe\u94f6\u884c", "count": 13}, {"name": "\u4e2d\u56fd\u77f3\u5316", "count": 7}, {"name": "\u4e2d\u56fd\u77f3\u6cb9", "count": 7}, {"name": "\u5174\u4e1a\u94f6\u884c", "count": 7}, {"name": "\u4e2d\u56fd\u5e73\u5b89", "count": 7}, {"name": "\u4e2d\u56fd\u79fb\u52a8", "count": 6}, {"name": "\u4e2d\u56fd\u795e\u534e", "count": 4}, {"name": "\u6c11\u751f\u94f6\u884c", "count": 4}, {"name": "\u6d66\u53d1\u94f6\u884c", "count": 4}, {"name": "\u4e2d\u56fd\u6d77\u6cb9", "count": 2}, {"name": "\u4e2d\u8fdc\u6d77\u63a7", "count": 2}, {"name": "\u4e2d\u56fd\u4eba\u5bff", "count": 1}, {"name": "\u90ae\u50a8\u94f6\u884c", "count": 1}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<ul class="simple">
+<li><p>每年都上榜的有6家，全是银行。而且，工商银行每年都是冠军。</p></li>
+<li><p>上榜的共有19家公司，银行占了11家，如果把平安和人寿算进去，金融占了13家。</p></li>
+<li><p>4家资源性公司，三桶油加一个煤炭。</p></li>
+<li><p>1家交通运输企业，中远海控。应该就是2021年疫情上的榜。世事无常，它还曾夺过亏损冠军。</p></li>
+<li><p>1家高科技企业，中国移动。</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+  #altair-viz-56ffa4f0559a4c2fbd14719b8fcb3a88.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-56ffa4f0559a4c2fbd14719b8fcb3a88.vega-embed details,
+  #altair-viz-56ffa4f0559a4c2fbd14719b8fcb3a88.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-56ffa4f0559a4c2fbd14719b8fcb3a88"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-56ffa4f0559a4c2fbd14719b8fcb3a88") {
+      outputDiv = document.getElementById("altair-viz-56ffa4f0559a4c2fbd14719b8fcb3a88");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.8.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.8.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-f1b368283d8fc397b115561fc1409dcd"}, "mark": {"type": "bar"}, "encoding": {"x": {"aggregate": "count", "type": "quantitative"}, "y": {"bin": {"step": 20}, "field": "counts", "type": "quantitative"}}, "height": 400, "width": "container", "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-f1b368283d8fc397b115561fc1409dcd": [{"indu": "\u4fdd\u9669", "counts": 6}, {"indu": "\u8d35\u91d1\u5c5e", "counts": 10}, {"indu": "\u8239\u8236\u5236\u9020", "counts": 11}, {"indu": "\u80fd\u6e90\u91d1\u5c5e", "counts": 11}, {"indu": "\u822a\u7a7a\u673a\u573a", "counts": 13}, {"indu": "\u73e0\u5b9d\u9996\u9970", "counts": 15}, {"indu": "\u6c7d\u8f66\u670d\u52a1", "counts": 15}, {"indu": "\u623f\u5730\u4ea7\u670d\u52a1", "counts": 17}, {"indu": "\u91c7\u6398\u884c\u4e1a", "counts": 19}, {"indu": "\u6559\u80b2", "counts": 19}, {"indu": "\u516c\u7528\u4e8b\u4e1a", "counts": 20}, {"indu": "\u98ce\u7535\u8bbe\u5907", "counts": 20}, {"indu": "\u77f3\u6cb9\u884c\u4e1a", "counts": 20}, {"indu": "\u73bb\u7483\u73bb\u7ea4", "counts": 21}, {"indu": "\u7535\u5b50\u5316\u5b66\u54c1", "counts": 21}, {"indu": "\u7535\u673a", "counts": 22}, {"indu": "\u6c7d\u8f66\u6574\u8f66", "counts": 23}, {"indu": "\u7efc\u5408\u884c\u4e1a", "counts": 23}, {"indu": "\u5316\u80a5\u884c\u4e1a", "counts": 24}, {"indu": "\u591a\u5143\u91d1\u878d", "counts": 25}, {"indu": "\u975e\u91d1\u5c5e\u6750\u6599", "counts": 26}, {"indu": "\u7535\u6e90\u8bbe\u5907", "counts": 26}, {"indu": "\u5bb6\u7528\u8f7b\u5de5", "counts": 27}, {"indu": "\u7f8e\u5bb9\u62a4\u7406", "counts": 28}, {"indu": "\u6a61\u80f6\u5236\u54c1", "counts": 29}, {"indu": "\u6e38\u620f", "counts": 29}, {"indu": "\u5316\u7ea4\u884c\u4e1a", "counts": 29}, {"indu": "\u94c1\u8def\u516c\u8def", "counts": 30}, {"indu": "\u533b\u836f\u5546\u4e1a", "counts": 30}, {"indu": "\u5305\u88c5\u6750\u6599", "counts": 30}, {"indu": "\u65c5\u6e38\u9152\u5e97", "counts": 31}, {"indu": "\u71c3\u6c14", "counts": 32}, {"indu": "\u5de5\u7a0b\u673a\u68b0", "counts": 32}, {"indu": "\u6c34\u6ce5\u5efa\u6750", "counts": 32}, {"indu": "\u4e13\u4e1a\u670d\u52a1", "counts": 33}, {"indu": "\u9020\u7eb8\u5370\u5237", "counts": 33}, {"indu": "\u822a\u8fd0\u6e2f\u53e3", "counts": 34}, {"indu": "\u8d38\u6613\u884c\u4e1a", "counts": 34}, {"indu": "\u7164\u70ad\u884c\u4e1a", "counts": 34}, {"indu": "\u822a\u5929\u822a\u7a7a", "counts": 36}, {"indu": "\u917f\u9152\u884c\u4e1a", "counts": 38}, {"indu": "\u5c0f\u91d1\u5c5e", "counts": 38}, {"indu": "\u5de5\u7a0b\u54a8\u8be2\u670d\u52a1", "counts": 39}, {"indu": "\u901a\u4fe1\u670d\u52a1", "counts": 40}, {"indu": "\u533b\u7597\u670d\u52a1", "counts": 41}, {"indu": "\u94f6\u884c", "counts": 42}, {"indu": "\u4ea4\u8fd0\u8bbe\u5907", "counts": 44}, {"indu": "\u519c\u836f\u517d\u836f", "counts": 45}, {"indu": "\u94a2\u94c1\u884c\u4e1a", "counts": 46}, {"indu": "\u5149\u4f0f\u8bbe\u5907", "counts": 47}, {"indu": "\u88c5\u4fee\u88c5\u9970", "counts": 47}, {"indu": "\u8ba1\u7b97\u673a\u8bbe\u5907", "counts": 48}, {"indu": "\u8bc1\u5238", "counts": 49}, {"indu": "\u7535\u6c60", "counts": 51}, {"indu": "\u7269\u6d41\u884c\u4e1a", "counts": 55}, {"indu": "\u4eea\u5668\u4eea\u8868", "counts": 59}, {"indu": "\u5546\u4e1a\u767e\u8d27", "counts": 65}, {"indu": "\u751f\u7269\u5236\u54c1", "counts": 66}, {"indu": "\u88c5\u4fee\u5efa\u6750", "counts": 69}, {"indu": "\u5de5\u7a0b\u5efa\u8bbe", "counts": 72}, {"indu": "\u4e2d\u836f", "counts": 73}, {"indu": "\u5316\u5b66\u539f\u6599", "counts": 74}, {"indu": "\u6709\u8272\u91d1\u5c5e", "counts": 75}, {"indu": "\u519c\u7267\u9972\u6e14", "counts": 77}, {"indu": "\u7535\u529b\u884c\u4e1a", "counts": 78}, {"indu": "\u5851\u6599\u5236\u54c1", "counts": 80}, {"indu": "\u5bb6\u7535\u884c\u4e1a", "counts": 88}, {"indu": "\u6d88\u8d39\u7535\u5b50", "counts": 90}, {"indu": "\u5149\u5b66\u5149\u7535\u5b50", "counts": 98}, {"indu": "\u623f\u5730\u4ea7\u5f00\u53d1", "counts": 100}, {"indu": "\u7eba\u7ec7\u670d\u88c5", "counts": 102}, {"indu": "\u901a\u4fe1\u8bbe\u5907", "counts": 103}, {"indu": "\u6587\u5316\u4f20\u5a92", "counts": 111}, {"indu": "\u73af\u4fdd\u884c\u4e1a", "counts": 116}, {"indu": "\u98df\u54c1\u996e\u6599", "counts": 117}, {"indu": "\u533b\u7597\u5668\u68b0", "counts": 118}, {"indu": "\u7535\u5b50\u5143\u4ef6", "counts": 127}, {"indu": "\u7535\u7f51\u8bbe\u5907", "counts": 130}, {"indu": "\u534a\u5bfc\u4f53", "counts": 130}, {"indu": "\u5316\u5b66\u5236\u836f", "counts": 137}, {"indu": "\u4e92\u8054\u7f51\u670d\u52a1", "counts": 140}, {"indu": "\u5316\u5b66\u5236\u54c1", "counts": 144}, {"indu": "\u8f6f\u4ef6\u5f00\u53d1", "counts": 174}, {"indu": "\u901a\u7528\u8bbe\u5907", "counts": 180}, {"indu": "\u6c7d\u8f66\u96f6\u90e8\u4ef6", "counts": 190}, {"indu": "\u4e13\u7528\u8bbe\u5907", "counts": 237}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./mywork"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">数据准备</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">上市公司利润总和的变化</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">利润构成-利润变化的驱动因素</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">利润构成——按板块和交易所</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">利润构成-分行业看</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Eric
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -3,7 +3,7 @@
 
 title: reports
 author: Eric
-logo: mylogo.png
+logo: mylogo_p.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
