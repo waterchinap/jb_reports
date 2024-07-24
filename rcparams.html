@@ -1,0 +1,811 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; reports</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'rcparams';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/mylogo_p.png" class="logo__image only-light" alt="reports - Home"/>
+    <script>document.write(`<img src="_static/mylogo_p.png" class="logo__image only-dark" alt="reports - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to my reports
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/waterchinap/jb_reports" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/rcparams.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p>KeysView(RcParams({‘_internal.classic_mode’: False,
+‘agg.path.chunksize’: 0,
+‘animation.bitrate’: -1,
+‘animation.codec’: ‘h264’,
+‘animation.convert_args’: [‘-layers’, ‘OptimizePlus’],
+‘animation.convert_path’: ‘convert’,
+‘animation.embed_limit’: 20.0,
+‘animation.ffmpeg_args’: [],
+‘animation.ffmpeg_path’: ‘ffmpeg’,
+‘animation.frame_format’: ‘png’,
+‘animation.html’: ‘none’,
+‘animation.writer’: ‘ffmpeg’,
+‘axes.autolimit_mode’: ‘data’,
+‘axes.axisbelow’: ‘line’,
+‘axes.edgecolor’: ‘black’,
+‘axes.facecolor’: ‘white’,
+‘axes.formatter.limits’: [-5, 6],
+‘axes.formatter.min_exponent’: 0,
+‘axes.formatter.offset_threshold’: 4,
+‘axes.formatter.use_locale’: False,
+‘axes.formatter.use_mathtext’: False,
+‘axes.formatter.useoffset’: True,
+‘axes.grid’: False,
+‘axes.grid.axis’: ‘both’,
+‘axes.grid.which’: ‘major’,
+‘axes.labelcolor’: ‘black’,
+‘axes.labelpad’: 4.0,
+‘axes.labelsize’: ‘medium’,
+‘axes.labelweight’: ‘normal’,
+‘axes.linewidth’: 0.8,
+‘axes.prop_cycle’: cycler(‘color’, [‘#1f77b4’, ‘#ff7f0e’, ‘#2ca02c’, ‘#d62728’, ‘#9467bd’, ‘#8c564b’, ‘#e377c2’, ‘#7f7f7f’, ‘#bcbd22’, ‘#17becf’]),
+‘axes.spines.bottom’: False,
+‘axes.spines.left’: False,
+‘axes.spines.right’: False,
+‘axes.spines.top’: False,
+‘axes.titlecolor’: ‘auto’,
+‘axes.titlelocation’: ‘center’,
+‘axes.titlepad’: 6.0,
+‘axes.titlesize’: ‘large’,
+‘axes.titleweight’: ‘normal’,
+‘axes.titley’: None,
+‘axes.unicode_minus’: False,
+‘axes.xmargin’: 0.05,
+‘axes.ymargin’: 0.05,
+‘axes.zmargin’: 0.05,
+‘axes3d.automargin’: False,
+‘axes3d.grid’: True,
+‘axes3d.xaxis.panecolor’: (0.95, 0.95, 0.95, 0.5),
+‘axes3d.yaxis.panecolor’: (0.9, 0.9, 0.9, 0.5),
+‘axes3d.zaxis.panecolor’: (0.925, 0.925, 0.925, 0.5),
+‘backend’: ‘module://matplotlib_inline.backend_inline’,
+‘backend_fallback’: True,
+‘boxplot.bootstrap’: None,
+‘boxplot.boxprops.color’: ‘black’,
+‘boxplot.boxprops.linestyle’: ‘-‘,
+‘boxplot.boxprops.linewidth’: 1.0,
+‘boxplot.capprops.color’: ‘black’,
+‘boxplot.capprops.linestyle’: ‘-‘,
+‘boxplot.capprops.linewidth’: 1.0,
+‘boxplot.flierprops.color’: ‘black’,
+‘boxplot.flierprops.linestyle’: ‘none’,
+‘boxplot.flierprops.linewidth’: 1.0,
+‘boxplot.flierprops.marker’: ‘o’,
+‘boxplot.flierprops.markeredgecolor’: ‘black’,
+‘boxplot.flierprops.markeredgewidth’: 1.0,
+‘boxplot.flierprops.markerfacecolor’: ‘none’,
+‘boxplot.flierprops.markersize’: 6.0,
+‘boxplot.meanline’: False,
+‘boxplot.meanprops.color’: ‘C2’,
+‘boxplot.meanprops.linestyle’: ‘–‘,
+‘boxplot.meanprops.linewidth’: 1.0,
+‘boxplot.meanprops.marker’: ‘^’,
+‘boxplot.meanprops.markeredgecolor’: ‘C2’,
+‘boxplot.meanprops.markerfacecolor’: ‘C2’,
+‘boxplot.meanprops.markersize’: 6.0,
+‘boxplot.medianprops.color’: ‘C1’,
+‘boxplot.medianprops.linestyle’: ‘-‘,
+‘boxplot.medianprops.linewidth’: 1.0,
+‘boxplot.notch’: False,
+‘boxplot.patchartist’: False,
+‘boxplot.showbox’: True,
+‘boxplot.showcaps’: True,
+‘boxplot.showfliers’: True,
+‘boxplot.showmeans’: False,
+‘boxplot.vertical’: True,
+‘boxplot.whiskerprops.color’: ‘black’,
+‘boxplot.whiskerprops.linestyle’: ‘-‘,
+‘boxplot.whiskerprops.linewidth’: 1.0,
+‘boxplot.whiskers’: 1.5,
+‘contour.algorithm’: ‘mpl2014’,
+‘contour.corner_mask’: True,
+‘contour.linewidth’: None,
+‘contour.negative_linestyle’: ‘dashed’,
+‘date.autoformatter.day’: ‘%Y-%m-%d’,
+‘date.autoformatter.hour’: ‘%m-%d %H’,
+‘date.autoformatter.microsecond’: ‘%M:%S.%f’,
+‘date.autoformatter.minute’: ‘%d %H:%M’,
+‘date.autoformatter.month’: ‘%Y-%m’,
+‘date.autoformatter.second’: ‘%H:%M:%S’,
+‘date.autoformatter.year’: ‘%Y’,
+‘date.converter’: ‘auto’,
+‘date.epoch’: ‘1970-01-01T00:00:00’,
+‘date.interval_multiples’: True,
+‘docstring.hardcopy’: False,
+‘errorbar.capsize’: 0.0,
+‘figure.autolayout’: False,
+‘figure.constrained_layout.h_pad’: 0.04167,
+‘figure.constrained_layout.hspace’: 0.02,
+‘figure.constrained_layout.use’: False,
+‘figure.constrained_layout.w_pad’: 0.04167,
+‘figure.constrained_layout.wspace’: 0.02,
+‘figure.dpi’: 100.0,
+‘figure.edgecolor’: ‘white’,
+‘figure.facecolor’: ‘white’,
+‘figure.figsize’: [6.4, 4.8],
+‘figure.frameon’: True,
+‘figure.hooks’: [],
+‘figure.labelsize’: ‘large’,
+‘figure.labelweight’: ‘normal’,
+‘figure.max_open_warning’: 20,
+‘figure.raise_window’: True,
+‘figure.subplot.bottom’: 0.11,
+‘figure.subplot.hspace’: 0.2,
+‘figure.subplot.left’: 0.125,
+‘figure.subplot.right’: 0.9,
+‘figure.subplot.top’: 0.88,
+‘figure.subplot.wspace’: 0.2,
+‘figure.titlesize’: ‘large’,
+‘figure.titleweight’: ‘normal’,
+‘font.cursive’: [‘Apple Chancery’,
+‘Textile’,
+‘Zapf Chancery’,
+‘Sand’,
+‘Script MT’,
+‘Felipa’,
+‘Comic Neue’,
+‘Comic Sans MS’,
+‘cursive’],
+‘font.family’: [‘sans-serif’],
+‘font.fantasy’: [‘Chicago’,
+‘Charcoal’,
+‘Impact’,
+‘Western’,
+‘xkcd script’,
+‘fantasy’],
+‘font.monospace’: [‘DejaVu Sans Mono’,
+‘Bitstream Vera Sans Mono’,
+‘Computer Modern Typewriter’,
+‘Andale Mono’,
+‘Nimbus Mono L’,
+‘Courier New’,
+‘Courier’,
+‘Fixed’,
+‘Terminal’,
+‘monospace’],
+‘font.sans-serif’: [‘WenQuanYi Micro Hei’],
+‘font.serif’: [‘DejaVu Serif’,
+‘Bitstream Vera Serif’,
+‘Computer Modern Roman’,
+‘New Century Schoolbook’,
+‘Century Schoolbook L’,
+‘Utopia’,
+‘ITC Bookman’,
+‘Bookman’,
+‘Nimbus Roman No9 L’,
+‘Times New Roman’,
+‘Times’,
+‘Palatino’,
+‘Charter’,
+‘serif’],
+‘font.size’: 10.0,
+‘font.stretch’: ‘normal’,
+‘font.style’: ‘normal’,
+‘font.variant’: ‘normal’,
+‘font.weight’: ‘normal’,
+‘grid.alpha’: 1.0,
+‘grid.color’: ‘#b0b0b0’,
+‘grid.linestyle’: ‘-‘,
+‘grid.linewidth’: 0.8,
+‘hatch.color’: ‘black’,
+‘hatch.linewidth’: 1.0,
+‘hist.bins’: 10,
+‘image.aspect’: ‘equal’,
+‘image.cmap’: ‘viridis’,
+‘image.composite_image’: True,
+‘image.interpolation’: ‘antialiased’,
+‘image.interpolation_stage’: ‘data’,
+‘image.lut’: 256,
+‘image.origin’: ‘upper’,
+‘image.resample’: True,
+‘interactive’: True,
+‘keymap.back’: [‘left’, ‘c’, ‘backspace’, ‘MouseButton.BACK’],
+‘keymap.copy’: [‘ctrl+c’, ‘cmd+c’],
+‘keymap.forward’: [‘right’, ‘v’, ‘MouseButton.FORWARD’],
+‘keymap.fullscreen’: [‘f’, ‘ctrl+f’],
+‘keymap.grid’: [‘g’],
+‘keymap.grid_minor’: [‘G’],
+‘keymap.help’: [‘f1’],
+‘keymap.home’: [‘h’, ‘r’, ‘home’],
+‘keymap.pan’: [‘p’],
+‘keymap.quit’: [‘ctrl+w’, ‘cmd+w’, ‘q’],
+‘keymap.quit_all’: [],
+‘keymap.save’: [‘s’, ‘ctrl+s’],
+‘keymap.xscale’: [‘k’, ‘L’],
+‘keymap.yscale’: [‘l’],
+‘keymap.zoom’: [‘o’],
+‘legend.borderaxespad’: 0.5,
+‘legend.borderpad’: 0.4,
+‘legend.columnspacing’: 2.0,
+‘legend.edgecolor’: ‘0.8’,
+‘legend.facecolor’: ‘inherit’,
+‘legend.fancybox’: True,
+‘legend.fontsize’: ‘medium’,
+‘legend.framealpha’: 0.8,
+‘legend.frameon’: True,
+‘legend.handleheight’: 0.7,
+‘legend.handlelength’: 2.0,
+‘legend.handletextpad’: 0.8,
+‘legend.labelcolor’: ‘None’,
+‘legend.labelspacing’: 0.5,
+‘legend.loc’: ‘best’,
+‘legend.markerscale’: 1.0,
+‘legend.numpoints’: 1,
+‘legend.scatterpoints’: 1,
+‘legend.shadow’: False,
+‘legend.title_fontsize’: None,
+‘lines.antialiased’: True,
+‘lines.color’: ‘C0’,
+‘lines.dash_capstyle’: &lt;CapStyle.butt: ‘butt’&gt;,
+‘lines.dash_joinstyle’: &lt;JoinStyle.round: ‘round’&gt;,
+‘lines.dashdot_pattern’: [6.4, 1.6, 1.0, 1.6],
+‘lines.dashed_pattern’: [3.7, 1.6],
+‘lines.dotted_pattern’: [1.0, 1.65],
+‘lines.linestyle’: ‘-‘,
+‘lines.linewidth’: 1.5,
+‘lines.marker’: ‘None’,
+‘lines.markeredgecolor’: ‘auto’,
+‘lines.markeredgewidth’: 1.0,
+‘lines.markerfacecolor’: ‘auto’,
+‘lines.markersize’: 6.0,
+‘lines.scale_dashes’: True,
+‘lines.solid_capstyle’: &lt;CapStyle.projecting: ‘projecting’&gt;,
+‘lines.solid_joinstyle’: &lt;JoinStyle.round: ‘round’&gt;,
+‘macosx.window_mode’: ‘system’,
+‘markers.fillstyle’: ‘full’,
+‘<a class="reference external" href="http://mathtext.bf">mathtext.bf</a>’: ‘sans:bold’,
+‘mathtext.bfit’: ‘sans:italic:bold’,
+‘mathtext.cal’: ‘cursive’,
+‘mathtext.default’: ‘it’,
+‘mathtext.fallback’: ‘cm’,
+‘mathtext.fontset’: ‘dejavusans’,
+‘<a class="reference external" href="http://mathtext.it">mathtext.it</a>’: ‘sans:italic’,
+‘mathtext.rm’: ‘sans’,
+‘mathtext.sf’: ‘sans’,
+‘<a class="reference external" href="http://mathtext.tt">mathtext.tt</a>’: ‘monospace’,
+‘patch.antialiased’: True,
+‘patch.edgecolor’: ‘black’,
+‘patch.facecolor’: ‘C0’,
+‘patch.force_edgecolor’: False,
+‘patch.linewidth’: 1.0,
+‘path.effects’: [],
+‘path.simplify’: True,
+‘path.simplify_threshold’: 0.111111111111,
+‘path.sketch’: None,
+‘path.snap’: True,
+‘pcolor.shading’: ‘auto’,
+‘pcolormesh.snap’: True,
+‘pdf.compression’: 6,
+‘pdf.fonttype’: 3,
+‘pdf.inheritcolor’: False,
+‘pdf.use14corefonts’: False,
+‘pgf.preamble’: ‘’,
+‘pgf.rcfonts’: True,
+‘pgf.texsystem’: ‘xelatex’,
+‘polaraxes.grid’: True,
+‘ps.distiller.res’: 6000,
+‘ps.fonttype’: 3,
+‘ps.papersize’: ‘letter’,
+‘ps.useafm’: False,
+‘ps.usedistiller’: None,
+‘savefig.bbox’: None,
+‘savefig.directory’: ‘~’,
+‘savefig.dpi’: ‘figure’,
+‘savefig.edgecolor’: ‘auto’,
+‘savefig.facecolor’: ‘auto’,
+‘savefig.format’: ‘png’,
+‘savefig.orientation’: ‘portrait’,
+‘savefig.pad_inches’: 0.1,
+‘savefig.transparent’: False,
+‘scatter.edgecolors’: ‘face’,
+‘scatter.marker’: ‘o’,
+‘svg.fonttype’: ‘path’,
+‘svg.hashsalt’: None,
+‘svg.image_inline’: True,
+‘text.antialiased’: True,
+‘text.color’: ‘black’,
+‘text.hinting’: ‘force_autohint’,
+‘text.hinting_factor’: 8,
+‘text.kerning_factor’: 0,
+‘text.latex.preamble’: ‘’,
+‘text.parse_math’: True,
+‘text.usetex’: False,
+‘timezone’: ‘UTC’,
+‘tk.window_focus’: False,
+‘toolbar’: ‘toolbar2’,
+‘webagg.address’: ‘127.0.0.1’,
+‘webagg.open_in_browser’: True,
+‘webagg.port’: 8988,
+‘webagg.port_retries’: 50,
+‘xaxis.labellocation’: ‘center’,
+‘xtick.alignment’: ‘center’,
+‘xtick.bottom’: True,
+‘xtick.color’: ‘black’,
+‘xtick.direction’: ‘out’,
+‘xtick.labelbottom’: True,
+‘xtick.labelcolor’: ‘inherit’,
+‘xtick.labelsize’: ‘medium’,
+‘xtick.labeltop’: False,
+‘xtick.major.bottom’: True,
+‘xtick.major.pad’: 3.5,
+‘xtick.major.size’: 3.5,
+‘xtick.major.top’: True,
+‘xtick.major.width’: 0.8,
+‘xtick.minor.bottom’: True,
+‘xtick.minor.ndivs’: ‘auto’,
+‘xtick.minor.pad’: 3.4,
+‘xtick.minor.size’: 2.0,
+‘xtick.minor.top’: True,
+‘xtick.minor.visible’: False,
+‘xtick.minor.width’: 0.6,
+‘xtick.top’: False,
+‘yaxis.labellocation’: ‘center’,
+‘ytick.alignment’: ‘center_baseline’,
+‘ytick.color’: ‘black’,
+‘ytick.direction’: ‘out’,
+‘ytick.labelcolor’: ‘inherit’,
+‘ytick.labelleft’: True,
+‘ytick.labelright’: False,
+‘ytick.labelsize’: ‘medium’,
+‘ytick.left’: True,
+‘ytick.major.left’: True,
+‘ytick.major.pad’: 3.5,
+‘ytick.major.right’: True,
+‘ytick.major.size’: 3.5,
+‘ytick.major.width’: 0.8,
+‘ytick.minor.left’: True,
+‘ytick.minor.ndivs’: ‘auto’,
+‘ytick.minor.pad’: 3.4,
+‘ytick.minor.right’: True,
+‘ytick.minor.size’: 2.0,
+‘ytick.minor.visible’: False,
+‘ytick.minor.width’: 0.6,
+‘ytick.right’: False}))</p>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Eric
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

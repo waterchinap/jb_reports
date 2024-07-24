@@ -1,0 +1,617 @@
+Traceback (most recent call last):
+  File "/home/eric/jb_reports/.venv/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/eric/jb_reports/.venv/lib/python3.12/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eric/jb_reports/.venv/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/eric/jb_reports/.venv/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/eric/jb_reports/.venv/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/eric/jb_reports/.venv/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+class Anaindex:
+    def __init__(self, idx) -> None:
+        '''
+        github中的数据已经整理过，df只包括至2022年度数据，code去除了2023年上市公司的数据。
+
+        '''
+        self.idx = idx
+        idx_s = f'../../mydata/yjbg_y2022_{idx}.pkl.gz'
+        code_s = f'../../mydata//ashare_basic.pkl.gz'
+        self.df = pd.read_pickle(idx_s)
+        self.code = pd.read_pickle(code_s)
+        self.df = self.df.replace(0, np.nan)
+        self.df['year'] = self.df['qs'].str[0:4]
+        self.quant = self.df.groupby('year')[idx].agg(['sum', 'count', 'mean', 'median', 'idxmax', 'idxmin']).reset_index()
+        self.merged = self.df.merge(self.code)
+        self.yeargp = self.merged.groupby('year')
+        self.indudf = self.merged.groupby(['year','indu'], as_index=False)[self.idx].sum()
+        self.indutb = self.indudf.pivot_table(index='indu', columns='year', values=self.idx, aggfunc='mean')
+        self.namedf = self.merged.groupby(['year', 'name'], as_index=False)[self.idx].sum()
+        self.nametb = self.namedf.pivot_table(index='name', columns='year', values=self.idx, aggfunc='mean')
+
+    @staticmethod
+    def showProfile(df) :
+        col_profile = pd.concat([df.dtypes, df.isna().sum()/len(df)*100, df.sample().T], axis=1 ).reset_index()
+        col_profile.columns = ['列名', '类型', '缺失比%','样例']
+        print(df.shape)
+        return (col_profile)
+    
+    def data_overall(self):
+        
+        def stat_cards():  
+            sum_byear = self.quant['sum']                
+            data = {
+            'sum' : f'{sum_byear.sum():.3}',
+            'inc' : f'{pow(sum_byear.iloc[-1]/sum_byear.iloc[0], 1/(len(sum_byear)-1)) - 1 : .2%}'}
+            return self.card(data)
+        
+        # 每年的'sum, mean, median'
+        quant_byear = {k:self.plot_ybar(self.quant[['year', k]], f'{k} of {self.idx}') for k in ['sum', 'mean', 'median']}
+        # 每年的交易所，板块分布
+        market_ex = {
+            k:self.plot_market_ex(k)
+            for k in ['market', 'ex']}
+
+        res = {'stat': stat_cards()
+               , 'quant_byear' : quant_byear
+               , 'market_ex': market_ex
+               }
+        return res
+    
+    def card(self, data):
+        '''
+        输入字典类型数据
+        输出：k是标题，v是内容一般为了显示巨大数据
+        '''
+        env = Environment(loader=FileSystemLoader('../_static/'))
+        temp = env.get_template('test.html')
+        return HTML(temp.render(dic_data = data))
+
+    def plot_hbar(self, df, title, fmt='.2f'):
+        '''
+        基础hbar
+        输入df必须规范化好，第一列标签是Y轴，第二列是数据X轴。
+        输出为降排列的hbar
+        '''
+
+        cols=list(df.columns)
+        fig = alt.Chart(df).mark_bar().encode(
+        alt.X(f'{cols[1]}:Q').axis(format=fmt),
+        alt.Y(f'{cols[0]}:O').sort('-x'),
+        tooltip=cols
+        ).properties(
+            title = title,
+            width = 'container',
+            height = len(df)*18+80
+        )
+        return fig
+    
+    def plot_ybar(self, df, title, fmt='.2s'):
+        '''
+        基础hbar
+        输入df必须规范化好，第一列标签是Y轴年份，第二列是数据X轴。
+        输出为按年排列的bar
+        '''
+
+        cols=list(df.columns)
+        fig = alt.Chart(df).mark_bar().encode(
+        alt.X(f'{cols[1]}:Q').axis(format=fmt),
+        alt.Y(f'{cols[0]}:O'),
+        tooltip=cols
+        ).properties(
+            title = title,
+            width = 'container',
+            height = len(df)*18+80
+        )
+        return fig
+    
+    def plot_min(self):
+        mindf = self.df.loc[self.quant['idxmin'],['year','code', self.idx]].reset_index(drop = True)
+        mindf = mindf.merge(self.code[['code', 'name']])
+        base = self.plot_ybar(mindf[['year', self.idx, 'name']],f'min of {self.idx} by year')
+        fig = base.mark_bar(color='brown') + base.mark_text(align='left', color='white').encode(text='name')
+        return fig
+    
+    def plot_max(self):
+        maxdf = self.df.loc[self.quant['idxmax'],['year','code', self.idx]].reset_index(drop = True)
+        maxdf = maxdf.merge(self.code[['code', 'name']])
+        base = self.plot_ybar(maxdf[['year', self.idx, 'name']],f'max of {self.idx} by year')
+        fig = base.mark_bar() + base.mark_text(align='right', color='white')
+        return fig
+    
+    def plot_bin(self, df, title='分布', f='.0f'):
+        # 第一列是属性，对第二列bin
+        
+        fig = alt.Chart(df, title = title, width='container').mark_bar().encode(
+        alt.Y(f'{df.columns[1]}:Q').bin().axis(format=f),
+        alt.X('count()').axis(title='数量'))
+        return fig
+        
+    def plot_sbar(self, df):
+        '''
+        输出为：纵轴按年份排列，横轴按类别进行百分比对比的条形图。
+        数据第一行为年份，第二列为分类，第3列为数据。
+        '''
+        cols = df.columns
+        fig = alt.Chart(df).mark_bar().encode(
+            alt.X(f'sum({cols[2]})').stack('normalize'),
+            alt.Y(f'{cols[0]}:O'),
+            color= cols[1]
+        ).properties(
+            title = f'percent by {cols[1]}',
+            width = 'container',
+            height = len(df)*9+60
+        )
+        return fig
+    
+    def plot_lose_compare(self, df):
+        '''
+        输入三列：year, cat, data
+        输出按年排列，正负值的数量和金额对比两张图。
+        '''
+        cols = df.columns
+        ldf = df[df[cols[2]]<0].groupby('year')[cols[2]].agg(
+            count='count',
+            sum = lambda x: np.abs(x.sum()),
+            正负 = lambda x: '负值'
+        )
+        wdf = df[df[cols[2]]>0].groupby('year')[cols[2]].agg(
+            count='count',
+            sum = lambda x: np.abs(x.sum()),
+            正负 = lambda x: '正值'
+        )
+        data = pd.concat([ldf, wdf]).reset_index()
+        res={
+            'count': self.plot_sbar(data[['year', '正负', 'count']]),
+            'sum': self.plot_sbar(data[['year', '正负', 'sum']])
+        }
+
+        return res
+
+    def plot_market_ex(self, cat):
+        '''
+        按市场和按交易所的变化可以合成一组。
+        cat:market, ex
+        '''
+        df  = profit.merged.groupby(['year',cat])[self.idx].sum().to_frame(self.idx).reset_index()
+        fig = self.plot_sbar(df)
+
+        return fig
+
+    def mostn(self, df, n=10):
+        '''
+        输入为3列df,第一列为year, indu | name, data
+        mostn: 合计前后n
+        mostn_byear：分年前后n
+        mostn_count:上榜前后n次数统计
+        '''
+        res = {}
+        for flag in [0, 1]:
+            res[f'mostn_{flag}'] = self.plot_mostn( df, flag)
+            res[f'mostn_byear_{flag}'] = self.plot_mostn_byear( df, flag)
+            res[f'mostn_count_{flag}'] = self.plot_mostn_count( df, flag)
+            res[f'most_{"min" if flag else "max"}'] = self.plot_minmax_years(df, flag)
+
+        return res
+
+    def plot_mostn(self, df, flag, agg='sum', n=10, f='.0s'):
+        '''
+        输入为3列df,第一列为year, indu | name, data
+        flag=0, 统计总和前十的行业。不分年。
+        flag=1, 统计总和后十的行业。不分年。        
+        '''
+        cols = df.columns
+        df = df.groupby(cols[1])[cols[2]].agg(agg).sort_values(ascending=flag).head(n).to_frame().reset_index()
+        title = f'{cols[1]}总{cols[2]}后十' if flag else f'{cols[1]}总{cols[2]}前{n}'
+        fig = self.plot_hbar( df, title, f)
+
+        return fig
+
+    def plot_mostn_count(self, df, flag, n=10):
+        '''
+        df columns : year, indu, profit
+        统计每一年份进入前后十名的名字，然后统计出现次数
+        flag = 0, 前十汇总
+        flag = 1, 后十汇总
+        n为前10
+        '''
+        cols = df.columns
+        topn = df.sort_values(by=[cols[0], cols[2]], ascending=[True, flag]).groupby(cols[0], as_index=False).nth[:n][cols[1]].value_counts().to_frame('count').reset_index()
+
+        title = f'{cols[1]}前{n}上榜次数统计[{len(topn)}个]' if flag == 0 else f'{cols[1]}后{n}上榜次数统计[{len(topn)}个]'
+
+        fig = self.plot_hbar(topn, title, '.0f')
+        return fig
+
+    def plot_minmax_years(self, df, flag, f='.0s'):
+        cols = df.columns
+        top = (df.sort_values(by=[cols[0], cols[2]], ascending=[True, flag])
+               .groupby(cols[0], as_index=False)
+               .nth[0])
+        top[cols[0]] = top[cols[0]] + '-' + top[cols[1]]
+        title = f'{cols[1]}历年{cols[2]}最小值' if flag else f'{cols[1]}历年{cols[2]}最大值'
+        fig = self.plot_ybar(top[[cols[0], cols[2]]], title, fmt=f)
+        return fig
+
+    def plot_mostn_byear(self, df, flag, n=10):
+        '''
+        df columns : year, indu, profit
+        flag=0, 统计每年利润前十的名字，3年一组全部绘制出来。
+        flag=1, 统计每年利润后十的名字，3年一组全部绘制出来。
+        '''
+        cols = df.columns
+
+        df = df.sort_values(by=[cols[0], cols[2]], ascending=[True, flag]).groupby(cols[0], as_index=False).nth[:n]
+        # 统一x坐标，以显示历史变化。
+        smax = df[cols[2]].max()*1.05
+        smin = df[cols[2]].min()*1.05
+
+        gp = df.groupby(cols[0], as_index=False)
+
+        # 绘制每一年的df图，存入list
+        chartlist = []
+        sort = 'x' if flag else '-x'
+        for a, b in gp:
+            fig = alt.Chart(b).mark_bar(color= 'brown' if flag else 'cornflowerblue').encode(
+            alt.X(f'{cols[2]}:Q').axis(format='.0s').scale(domain=(smin if flag else 0,smax)),
+            alt.Y(f'{cols[1]}:O').sort(sort),
+            ).properties(
+                title = a,
+                width = 180,
+                height = n*16+60
+            )
+            chartlist.append(fig)
+
+        # 一行两列图形，先分割成两个一组的列表
+        chars = [chartlist[i:i+3] for i in range(0, len(chartlist), 3)]
+        # 最终的图形是纵向拼接每一组两个横向拼接的图
+        figs = alt.vconcat()
+        for r in chars:
+            row = alt.hconcat()
+            for c in r:
+                row |= c
+            figs &= row
+        
+        return figs
+
+    def plot_den(self, s):
+        '''
+        input is a series
+        将s从大到小排列，然后累计占比。
+        输出一个累计百分比图，显示集中度。
+        横轴是排名前百分之几的项目，纵轴是累计占比。
+        由天alt只能接受行数少于5000, 所以将数据百分比化。
+        200行内直接给制，200行以上将数据缩减到100个。
+        '''
+        s = s.sort_values(ascending=0)
+        step = int(len(s)/100) if len(s) > 200 else 1
+        cum_pct = (100*s/s.sum()).cumsum()
+        num_pct = np.array([i+1 for i in range(len(s))]) *100 / len(s)
+        df = pd.DataFrame({'cum_pct':cum_pct, 'num_pct':num_pct})
+        df = df.iloc[::step,:]
+        fig = alt.Chart(df).mark_line().encode(
+        y='cum_pct',
+        x='num_pct').properties(
+            width = 'container'
+        )
+        return fig
+
+    def plot_bank_pct(self):
+        '''
+        银行、保险、券商三个行业加一起的利润占比的按年变化。
+        '''
+        df = self.merged
+        df['cat'] = df['indu'].apply(lambda x: 'banks' if x in ['银行','保险','证券'] else 'others')
+        banks_profit = df.groupby(['year','cat'])[['profit']].sum().reset_index()
+        
+        fig = alt.Chart(banks_profit).mark_bar().encode(
+            alt.X(f'sum({self.idx})').stack('normalize'),
+            alt.Y('year:O'),
+            color= 'cat'
+        ).properties(
+            title = '大金融利润占比变化',
+            width = 'container',
+            height = 340
+        )
+        return fig
+
+    def code_shapee(self):
+        '''
+        计算所有代码的shapee值
+        输出一个从历年到最后一个报告年度的df
+        以及一个平均值的s
+        '''
+        indu_table = self.merged.pivot_table(index='code', columns='year', values=self.idx, aggfunc='sum')
+        cols = indu_table.columns
+
+        res_df = pd.DataFrame()
+
+        for i in range(0, len(cols)-5):
+
+            # 以每年的开始持有到目前都做测试。到前三年止，只计算两年的数据可能会奇高。
+            sel = indu_table.iloc[:,i:]
+            # 去掉所有包含空值的项目，空值表明要么当时还没有上市，要么表示当年没法出报告。
+            sel = sel.dropna(axis=0)
+
+            # 出现过亏损的去掉，因为无法正常计算平均增长率
+            sel = sel[sel.min(axis=1) >0].pct_change(axis=1)
+            res = sel.mean(axis=1) / sel.std(axis=1)
+            res = res.sort_values(ascending=0).to_frame('shapee').reset_index()
+            res['year'] = cols[i]
+            res_df = pd.concat([res_df, res])
+
+        df_by_year = res_df.pivot_table(index='code', columns='year', values='shapee').sort_values(by='2010', ascending=0)
+        s_avg = df_by_year.mean(axis=1).sort_values(ascending=0)
+
+        return (df_by_year, s_avg)
+
+    def indu_shapee(self):
+        '''
+        计算所有行业的shapee值
+        输出一个从历年到最后一个报告年度的df
+        以及一个平均值的s
+        '''
+        indu_table = self.merged.pivot_table(index=['code','indu'], columns='year', values=self.idx, aggfunc='sum')
+        cols = indu_table.columns
+
+        res_df = pd.DataFrame()
+
+        for i in range(0, len(cols)-3):
+
+            # 以每年的开始持有到目前都做测试。到前三年止，只计算两年的数据可能会奇高。
+            sel = indu_table.iloc[:,i:]
+            # 去掉所有包含空值的项目，空值表明要么当时还没有这个行业，要么表示当年没法出报告。
+            sel = sel.dropna(axis=0)
+            # group到indu
+            byindu = sel.groupby(level=1).mean()
+            # 行业出现过亏损的去掉，因为无法正常计算平均增长率
+            byindu = byindu[byindu.min(axis=1) >0].pct_change(axis=1)
+            res = byindu.mean(axis=1) / byindu.std(axis=1)
+            res = res.sort_values(ascending=0).to_frame('shapee').reset_index()
+            res['year'] = cols[i]
+            res_df = pd.concat([res_df, res])
+
+        df_by_year = res_df.pivot_table(index='indu', columns='year', values='shapee').sort_values(by='2010', ascending=0)
+        s_avg = df_by_year.mean(axis=1).sort_values(ascending=0)
+
+        return (df_by_year, s_avg)
+        
+    def inc_byear(self, df):
+        '''
+        df有三列
+        df: merged[['year', 'name', 'profit']] or indudf
+        '''
+        df = df.groupby('year')[[self.idx]].sum().pct_change().reset_index()
+        a_mean = {'平均增长':f'{df[self.idx].mean():.2%}'}
+        return {'byear':self.plot_ybar(df, f'历年{self.idx}增长', '.0%'),'a_mean': self.card(a_mean)}
+
+    def inc_data(self, df):
+        '''
+        输入一个表：col是年份，index是标签。
+        '''
+        wdf = df[df.min(1)>0] # 去除历史上出现过负值的行
+        wdf = wdf.pct_change(axis=1).iloc[:, 1:] # 去除第1列，因为是空值
+        all_win = wdf[wdf.min(1)>0]
+        stat = {'总数':len(df),'保持正值':len(wdf),'保持增长': len(all_win)}
+
+        neg_count = wdf[wdf < 0].count(axis=1).to_frame('次数').reset_index()
+        # win_bin = win_bin.to_frame('数量').reset_index(names= '负增长次数')
+        # plot_win_bin = self.plot_ybar(win_bin, '出现负增长情况统计','.0f')
+        # count_gp = wdf[wdf < 0 ].count(axis=1).to_frame('counts').groupby('counts')
+        # def plot_abin_byear(i, title):
+        #     df = wdf[wdf.index.isin(count_gp.get_group(i).index) == True]
+        #     df = df.melt(var_name='year', value_name='inc', ignore_index=False).reset_index()
+        #     fig = alt.Chart(df).mark_line().encode(
+        #         alt.X('year:O'),
+        #         alt.Y('inc:Q'),
+        #         alt.Color('indu').legend(orient='top')
+        #     ).properties(
+        #         title= title,
+        #         width = 'container'
+        #     )
+        #     return fig
+
+        def plot_bin(df=neg_count, title='负增长次数分布', f='.0f'):
+            # 第一列是属性，对第二列bin
+        
+            fig = alt.Chart(df, title= title, width='container').mark_bar().encode(
+            alt.Y(f'{df.columns[1]}:Q').bin().axis(format=f),
+            alt.X('count()').axis(title='数量'))
+            return fig
+        
+        # def plot_bin_most10(df, f, title):        
+        #     # 数据分析做条形图
+        #     # 取数据的前十和后十做条形图
+        #     fig_bin = plot_bin(df, f'{title}分布', f)
+        #     fig1 = self.plot_hbar(df.head(10), f'{title}前十', f)
+        #     fig2 = self.plot_hbar(df.tail(10), f'{title}后十', f)
+        #     return (fig_bin, fig1, fig2)
+        
+        # def plot_mean():
+        #     df = wdf.mean(1).sort_values(ascending=0).to_frame('mean').reset_index()
+        #     return plot_bin_most10(df, '.0%', '平均增长率')
+
+        # def plot_shapee():
+        #     df = (wdf.mean(1) / wdf.std(1)).sort_values(ascending = 0).to_frame('shapee').reset_index()
+        #     return plot_bin_most10(df, '.2f', '夏普指数')
+
+        return (wdf, neg_count, plot_bin())
+
+    def get_inc(self, df, agg='sum'):
+        '''
+        输入三列：年份，标签，数据，数据去除了绝对值为负的项目。
+        输入：同样三列，将原来的数据列变化增长率
+        '''
+        cols=df.columns
+        dft = df.pivot_table(index=cols[0], columns=cols[1], values=cols[2], aggfunc=agg)
+        dft = dft.loc[:,dft.min() > 0]
+        dft = np.log1p(dft.pct_change()).iloc[1:,:]
+        ldf = dft.melt(var_name=cols[1], value_name='inc', ignore_index=False).reset_index()
+        return ldf
+
+    def get_shapee(self, df):
+        '''
+        输入三列：year, indu|name, inc,即通过get_inc()轮换的df。
+        输出三列：year, indu|name, shapee
+        '''
+        df = self.get_inc(df)  
+        cols = df.columns      
+        dft = df.pivot_table(index=cols[0], columns=cols[1], values=cols[2], aggfunc='sum')
+        res_df = pd.DataFrame()
+        for i in range(len(dft) -3 ):
+            res = (dft.iloc[i:,].mean() / dft.iloc[i:,].std()).to_frame('shapee')
+            res['year'] = dft.index[i]
+            res_df = pd.concat([res_df,res])
+
+        res_df = res_df.reset_index()[['year', cols[1], 'shapee']]
+
+        return res_df
+    
+    def tidy_name(self, df):
+        '''
+        数据集中个股的报表数据出现多个空值。这分两种情况：
+        1、报告首年不是从2010年开始的。
+        2、在某一年缺失报告数。
+        第二种情况出现说明出现了某种不好的状况，所以要将第二种情况排除掉。
+        首先计算出报告首年度（注意和上市年度并不对应），第一个报告年度以前出现的空值没问题，以后出现的空值排除。
+        每一个报告首年度对应一个报告总数，如果实际报告数等于这个数则保留，否则排除。
+        '''
+
+        cols = df.columns
+        fyear = df.sort_values([cols[1], cols[0]]).groupby(cols[1]).nth(0)
+        fyear['fyear'] = fyear['year']
+        dft = df.pivot_table(index=cols[1], columns=cols[0], values=cols[2], aggfunc='sum')
+        dft = dft.replace(0, np.nan)
+
+        k = dft.columns
+        v = [len(k)-i for i in range(len(k))]
+        tdic = dict(zip(k,v))
+
+        fyear['r_counts'] = fyear['fyear'].apply(lambda x : tdic[x])
+        sel = fyear.merge(dft.count(axis=1).to_frame('r_act').reset_index(), on = cols[1])
+        sel0 = sel[sel['r_counts'] == sel['r_act']][cols[1]]
+        # 中间缺少数据的个股96家，大部分不重要，但有两个：中国移动和中国人保相对重要。此数据集质量一般。
+        # dft_sel = dft.loc[sel0,]
+        df_sel = df.replace(0, np.nan).loc[df['name'].isin(sel0),]
+
+        return df_sel
+
+    def plot_neg_pos_compare(self, df):
+        '''
+        输出正负值的数量和金额比
+        输入为三年，年，标签，数据
+        '''
+        cols = df.columns
+        c_win = df[df[cols[2]]> 0 ].groupby(cols[0])[[cols[1]]].count().reset_index()
+        c_loss = df[df[cols[2]]< 0 ].groupby(cols[0])[[cols[1]]].count().reset_index()
+        c_win['cat'] = '赢利'
+        c_loss['cat'] = '亏损'
+        cdf = pd.concat([c_win, c_loss], ignore_index=True)
+        cdf.columns = [cols[0],cols[2], 'cat']
+        cdf['typ'] = '数量比'
+
+        s_win = df[df[cols[2]]> 0 ].groupby(cols[0])[[cols[2]]].sum().reset_index()
+        s_loss = df[df[cols[2]]< 0 ].groupby(cols[0])[[cols[2]]].sum().multiply(-1).reset_index()
+        s_win['cat'] = '赢利'
+        s_loss['cat'] = '亏损'
+        sdf = pd.concat([s_win, s_loss], ignore_index=True)
+        sdf.columns = [cols[0],cols[2], 'cat']
+        sdf['typ'] = '金额比'
+
+        plot_df = pd.concat([cdf, sdf])
+
+        fig = alt.Chart(plot_df).mark_bar().encode(
+            alt.X(f'{cols[2]}:Q').stack('normalize').axis(title='百分比'),
+            alt.Y('typ:O').axis(title=None),
+            alt.Color('cat'),
+            row=f'{cols[0]}'
+        ).properties(
+            title='正负值数量和金额对比',
+            width = 600,  # width = container seems not work in any h or v stack
+            # height = len(cdf),
+
+        )
+        return fig
+
+profit = Anaindex('profit')
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+Cell [0;32mIn[2], line 526[0m
+[1;32m    513[0m         fig [38;5;241m=[39m alt[38;5;241m.[39mChart(plot_df)[38;5;241m.[39mmark_bar()[38;5;241m.[39mencode(
+[1;32m    514[0m             alt[38;5;241m.[39mX([38;5;124mf[39m[38;5;124m'[39m[38;5;132;01m{[39;00mcols[[38;5;241m2[39m][38;5;132;01m}[39;00m[38;5;124m:Q[39m[38;5;124m'[39m)[38;5;241m.[39mstack([38;5;124m'[39m[38;5;124mnormalize[39m[38;5;124m'[39m)[38;5;241m.[39maxis(title[38;5;241m=[39m[38;5;124m'[39m[38;5;124m百分比[39m[38;5;124m'[39m),
+[1;32m    515[0m             alt[38;5;241m.[39mY([38;5;124m'[39m[38;5;124mtyp:O[39m[38;5;124m'[39m)[38;5;241m.[39maxis(title[38;5;241m=[39m[38;5;28;01mNone[39;00m),
+[0;32m   (...)[0m
+[1;32m    522[0m 
+[1;32m    523[0m         )
+[1;32m    524[0m         [38;5;28;01mreturn[39;00m fig
+[0;32m--> 526[0m profit [38;5;241m=[39m [43mAnaindex[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mprofit[39;49m[38;5;124;43m'[39;49m[43m)[49m
+
+Cell [0;32mIn[2], line 10[0m, in [0;36mAnaindex.__init__[0;34m(self, idx)[0m
+[1;32m      8[0m idx_s [38;5;241m=[39m [38;5;124mf[39m[38;5;124m'[39m[38;5;124m../../mydata/yjbg_y2022_[39m[38;5;132;01m{[39;00midx[38;5;132;01m}[39;00m[38;5;124m.pkl.gz[39m[38;5;124m'[39m
+[1;32m      9[0m code_s [38;5;241m=[39m [38;5;124mf[39m[38;5;124m'[39m[38;5;124m../../mydata//ashare_basic.pkl.gz[39m[38;5;124m'[39m
+[0;32m---> 10[0m [38;5;28mself[39m[38;5;241m.[39mdf [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mread_pickle[49m[43m([49m[43midx_s[49m[43m)[49m
+[1;32m     11[0m [38;5;28mself[39m[38;5;241m.[39mcode [38;5;241m=[39m pd[38;5;241m.[39mread_pickle(code_s)
+[1;32m     12[0m [38;5;28mself[39m[38;5;241m.[39mdf [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mdf[38;5;241m.[39mreplace([38;5;241m0[39m, np[38;5;241m.[39mnan)
+
+File [0;32m~/jb_reports/.venv/lib/python3.12/site-packages/pandas/io/pickle.py:185[0m, in [0;36mread_pickle[0;34m(filepath_or_buffer, compression, storage_options)[0m
+[1;32m    123[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
+[1;32m    124[0m [38;5;124;03mLoad pickled pandas object (or any object) from file.[39;00m
+[1;32m    125[0m 
+[0;32m   (...)[0m
+[1;32m    182[0m [38;5;124;03m4    4    9[39;00m
+[1;32m    183[0m [38;5;124;03m"""[39;00m
+[1;32m    184[0m excs_to_catch [38;5;241m=[39m ([38;5;167;01mAttributeError[39;00m, [38;5;167;01mImportError[39;00m, [38;5;167;01mModuleNotFoundError[39;00m, [38;5;167;01mTypeError[39;00m)
+[0;32m--> 185[0m [38;5;28;01mwith[39;00m [43mget_handle[49m[43m([49m
+[1;32m    186[0m [43m    [49m[43mfilepath_or_buffer[49m[43m,[49m
+[1;32m    187[0m [43m    [49m[38;5;124;43m"[39;49m[38;5;124;43mrb[39;49m[38;5;124;43m"[39;49m[43m,[49m
+[1;32m    188[0m [43m    [49m[43mcompression[49m[38;5;241;43m=[39;49m[43mcompression[49m[43m,[49m
+[1;32m    189[0m [43m    [49m[43mis_text[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m
+[1;32m    190[0m [43m    [49m[43mstorage_options[49m[38;5;241;43m=[39;49m[43mstorage_options[49m[43m,[49m
+[1;32m    191[0m [43m[49m[43m)[49m [38;5;28;01mas[39;00m handles:
+[1;32m    192[0m     [38;5;66;03m# 1) try standard library Pickle[39;00m
+[1;32m    193[0m     [38;5;66;03m# 2) try pickle_compat (older pandas version) to handle subclass changes[39;00m
+[1;32m    194[0m     [38;5;66;03m# 3) try pickle_compat with latin-1 encoding upon a UnicodeDecodeError[39;00m
+[1;32m    196[0m     [38;5;28;01mtry[39;00m:
+[1;32m    197[0m         [38;5;66;03m# TypeError for Cython complaints about object.__new__ vs Tick.__new__[39;00m
+[1;32m    198[0m         [38;5;28;01mtry[39;00m:
+
+File [0;32m~/jb_reports/.venv/lib/python3.12/site-packages/pandas/io/common.py:765[0m, in [0;36mget_handle[0;34m(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)[0m
+[1;32m    761[0m [38;5;28;01mif[39;00m compression [38;5;241m==[39m [38;5;124m"[39m[38;5;124mgzip[39m[38;5;124m"[39m:
+[1;32m    762[0m     [38;5;28;01mif[39;00m [38;5;28misinstance[39m(handle, [38;5;28mstr[39m):
+[1;32m    763[0m         [38;5;66;03m# error: Incompatible types in assignment (expression has type[39;00m
+[1;32m    764[0m         [38;5;66;03m# "GzipFile", variable has type "Union[str, BaseBuffer]")[39;00m
+[0;32m--> 765[0m         handle [38;5;241m=[39m [43mgzip[49m[38;5;241;43m.[39;49m[43mGzipFile[49m[43m([49m[43m  [49m[38;5;66;43;03m# type: ignore[assignment][39;49;00m
+[1;32m    766[0m [43m            [49m[43mfilename[49m[38;5;241;43m=[39;49m[43mhandle[49m[43m,[49m
+[1;32m    767[0m [43m            [49m[43mmode[49m[38;5;241;43m=[39;49m[43mioargs[49m[38;5;241;43m.[39;49m[43mmode[49m[43m,[49m
+[1;32m    768[0m [43m            [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mcompression_args[49m[43m,[49m
+[1;32m    769[0m [43m        [49m[43m)[49m
+[1;32m    770[0m     [38;5;28;01melse[39;00m:
+[1;32m    771[0m         handle [38;5;241m=[39m gzip[38;5;241m.[39mGzipFile(
+[1;32m    772[0m             [38;5;66;03m# No overload variant of "GzipFile" matches argument types[39;00m
+[1;32m    773[0m             [38;5;66;03m# "Union[str, BaseBuffer]", "str", "Dict[str, Any]"[39;00m
+[0;32m   (...)[0m
+[1;32m    776[0m             [38;5;241m*[39m[38;5;241m*[39mcompression_args,
+[1;32m    777[0m         )
+
+File [0;32m/usr/lib/python3.12/gzip.py:192[0m, in [0;36mGzipFile.__init__[0;34m(self, filename, mode, compresslevel, fileobj, mtime)[0m
+[1;32m    190[0m     mode [38;5;241m+[39m[38;5;241m=[39m [38;5;124m'[39m[38;5;124mb[39m[38;5;124m'[39m
+[1;32m    191[0m [38;5;28;01mif[39;00m fileobj [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m--> 192[0m     fileobj [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mmyfileobj [38;5;241m=[39m [43mbuiltins[49m[38;5;241;43m.[39;49m[43mopen[49m[43m([49m[43mfilename[49m[43m,[49m[43m [49m[43mmode[49m[43m [49m[38;5;129;43;01mor[39;49;00m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrb[39;49m[38;5;124;43m'[39;49m[43m)[49m
+[1;32m    193[0m [38;5;28;01mif[39;00m filename [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[1;32m    194[0m     filename [38;5;241m=[39m [38;5;28mgetattr[39m(fileobj, [38;5;124m'[39m[38;5;124mname[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124m'[39m)
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../../mydata/yjbg_y2022_profit.pkl.gz'
+
