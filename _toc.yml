@@ -4,7 +4,8 @@
 format: jb-book
 root: intro
 chapters:
-- file: mywork/getdata # 注意不加后缀.md，前面也不能加./。
+- file: mywork/00_getdata # 注意不加后缀.md，前面也不能加./。
+- file: mywork/01_listed
 # - file: mywork/test
 # - file: ./mywork/data_prep
 # - file: ./mywork/test_profile

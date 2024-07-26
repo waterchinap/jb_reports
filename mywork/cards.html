@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .card_group {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          text-align: center;
+        }
+  
+        .card {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+          background: #fff;
+          border-radius: 10px;
+          margin: 1rem;
+          width: 200px;
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.24);
+          padding: 10px;
+          box-sizing: border-box;
+          overflow: hidden;
+        }
+        .card_item {
+          border-bottom: 1px dotted grey;
+          margin: 5px 0;
+          padding: 5px;
+          font-size: 1em;
+        }
+        .card_big {
+          border-bottom: 1px dotted grey;
+          margin: 5px 0;
+          padding: 5px;
+          font-size: 2em;
+        }
+        .card_huge {
+          border-bottom: 1px dotted grey;
+          margin: 5px 0;
+          padding: 5px;
+          font-size: 4em;
+        }
+        .card_title {
+          border-bottom: 1px dotted grey;
+          margin: 5px 0;
+          padding: 5px;
+          font-size: 1em;
+          font-weight: bold;
+        }
+        .card_content {
+          font-size: 1em;
+          margin: 5px;
+          align-self: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          justify-items: center;
+        }
+      </style>
+</head>
+<body>
+    <div class="card_group">
+        {% for k, card in df.iterrows() %}
+        <div class="card">
+            {% for key, value in card.items() %}
+            <div class="card_{{ cols[key] }}">
+                {{ value }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+
+    </div>
+    
+</body>
+</html>
