@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -179,7 +179,12 @@
                 </a>
             </li>
         </ul>
-        
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00_getdata.html">获得数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_listed.html">上市公司基本情况</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_yjbb.html">2023年度报告</a></li>
+</ul>
+
     </div>
 </nav></div>
     </div>
@@ -443,7 +448,6 @@ document.write(`
 <span class="sd">        输入df必须规范化好，第一列标签是Y轴，第二列是数据X轴。</span>
 <span class="sd">        输出为降排列的hbar</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-
         <span class="n">cols</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
         <span class="n">fig</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
         <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">:Q&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="n">fmt</span><span class="p">),</span>
@@ -910,15 +914,15 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">526</span>
-<span class="g g-Whitespace">    </span><span class="mi">513</span>         <span class="n">fig</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">plot_df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">514</span>             <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">cols</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s1">:Q&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="s1">&#39;normalize&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;百分比&#39;</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">515</span>             <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;typ:O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">525</span>
+<span class="g g-Whitespace">    </span><span class="mi">512</span>         <span class="n">fig</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">plot_df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">513</span>             <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">cols</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s1">:Q&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="s1">&#39;normalize&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;百分比&#39;</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">514</span>             <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;typ:O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
    <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">522</span> 
-<span class="g g-Whitespace">    </span><span class="mi">523</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">524</span>         <span class="k">return</span> <span class="n">fig</span>
-<span class="ne">--&gt; </span><span class="mi">526</span> <span class="n">profit</span> <span class="o">=</span> <span class="n">Anaindex</span><span class="p">(</span><span class="s1">&#39;profit&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">521</span> 
+<span class="g g-Whitespace">    </span><span class="mi">522</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">523</span>         <span class="k">return</span> <span class="n">fig</span>
+<span class="ne">--&gt; </span><span class="mi">525</span> <span class="n">profit</span> <span class="o">=</span> <span class="n">Anaindex</span><span class="p">(</span><span class="s1">&#39;profit&#39;</span><span class="p">)</span>
 
 <span class="nn">Cell In[2], line 10,</span> in <span class="ni">Anaindex.__init__</span><span class="nt">(self, idx)</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">idx_s</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;../../mydata/yjbg_y2022_</span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s1">.pkl.gz&#39;</span>

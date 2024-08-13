@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    a {
+            text-decoration: none; /* 去掉下划线 */
+            color: inherit; /* 继承父元素的颜色 */
+        }
+    .lab_container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap; /* 自动换行 */
+    }
+    
+    .labaaa {
+        display: flex;
+        flex-direction: column;
+        margin: 2px; 
+        background-color: azure;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    
+    .lab_content {
+        display: flex;
+        flex-direction: row;
+        /* justify-content: space-between; */
+    }
+    .lab_rank {
+        display: flex;
+        width: 2em; 
+        height: 1.5em; 
+        border-right: 2px solid gray;
+        align-items: center;
+        justify-content: center;
+        /* background-color: #f0f0f0; */
+        font-size: 1em; 
+    }
+    
+    .lab_title {
+        display: flex;
+        width: 6em;
+        height: 1.5; 
+        align-items: center;
+        justify-content: center;
+        /* background-color: gray; */
+        font-size: 1em; 
+    }
+
+    .lab_value {
+        display: flex;
+        width: 8em;
+        height: 1.5em; 
+        border-top: 2px solid gray;
+        align-items: center;
+        justify-content: center;
+        /* background-color: rgb(14, 11, 206);  */
+        font-size: 1em; 
+    }
+    </style>
+</head>
+<body>
+    <div class="lab_container">
+        {% for t in df.itertuples() %}
+        <div class="labaaa">
+            <div class="lab_content">
+                <div class="lab_rank">{{t[3]}}</div>
+                <div class="lab_title"><a href="https://data.eastmoney.com/stockdata/{{t[4]}}.html" target="_blank">{{t[1]}}</a></div>
+            </div>
+            {% if not oneline %}
+            <div class="lab_value">{{t[2]}}</div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+
+
+
