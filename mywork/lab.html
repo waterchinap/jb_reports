@@ -13,33 +13,33 @@
         gap: 2px
     }
     
-    .lab_{{uid}} {
+    .lab_{{ uid }} {
         display: flex;
         flex-direction: column;
         border: 1px solid gray;
         width: 8em; 
         margin: 2px; 
-        background-color: azure;
+        background-color: white;
         border-radius: 5px;
         overflow: hidden;
     }
     
-    .lab_content_{{uid}} {
+    .lab_content_{{ uid }} {
         display: flex;
         width: 8em; 
         flex-direction: row;
     }
-    .lab_rank_{{uid}} {
+    .lab_rank_{{ uid }} {
         display: flex;
         width: 2em; 
         height: 1.5em; 
-        {# border-right: 2px solid gray; #}
+        border-right: 2px solid gray;
         align-items: center;
         justify-content: center;
         font-size: 1em; 
     }
     
-    .lab_title_{{uid}} {
+    .lab_title_{{ uid }} {
         display: flex;
         width: 6em;
         height: 1.5; 
@@ -49,7 +49,7 @@
         font-size: 1em; 
     }
 
-    .lab_value_{{uid}} {
+    .lab_value_{{ uid }} {
         display: flex;
         width: 8em;
         height: 1.5em; 
@@ -61,15 +61,15 @@
     </style>
 </head>
 <body>
-    <div class="lab_container_{{uid}}">
+    <div class="lab_container_{{ uid }}">
         {% for t in df.itertuples() %}
-        <div class="lab_{{uid}}">
-            <div class="lab_content_{{uid}}">
-                <div class="lab_rank_{{uid}}">{{t[3]}}</div>
-                <div class="lab_title_{{uid}}"><a href="https://data.eastmoney.com/stockdata/{{t[4]}}.html" target="_blank">{{t[1]}}</a></div>
+        <div class="lab_{{ uid }}">
+            <div class="lab_content_{{ uid }}">
+                <div class="lab_rank_{{ uid }}">{{t[3]}}</div>
+                <div class="lab_title_{{ uid }}"><a href="https://data.eastmoney.com/stockdata/{{t[4]}}.html" target="_blank">{{t[1]}}</a></div>
             </div>
             {% if not oneline %}
-            <div class="lab_value_{{uid}}">{{t[2]}}</div>
+            <div class="lab_value_{{ uid }}">{{t[2]}}</div>
             {% endif %}
         </div>
         {% endfor %}
