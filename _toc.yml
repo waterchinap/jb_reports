@@ -6,9 +6,11 @@ root: intro
 chapters:
 - file: mywork/00_getdata # 注意不加后缀.md，前面也不能加./。
 - file: mywork/01_listed
-- file: mywork/02_yjbb_profit
-- file: mywork/03_yjbb_revenue
-- file: mywork/04_yjbb_asset
-- file: mywork/05_yjbb_roe
-- file: mywork/06_yjbb_npm
+- file: mywork/2024q2byq
+- file: mywork/2024q2
 - file: mywork/2024q1
+- file: mywork/2023q4_revenue
+- file: mywork/2023q4_profit
+- file: mywork/2023q4_asset
+- file: mywork/2023q4_roe
+- file: mywork/2023q4_npm
