@@ -8,5 +8,3 @@
 
 ## 有用的链接
 [the Jupyter Book documentation](https://jupyterbook.org) .
-
-
